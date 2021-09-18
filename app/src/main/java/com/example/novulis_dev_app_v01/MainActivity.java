@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.novulis_dev_app_v01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
