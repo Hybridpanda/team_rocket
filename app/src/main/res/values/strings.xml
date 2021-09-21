@@ -6,4 +6,13 @@
     <string name="username">Username</string>
     <string name="novulis">Novulis</string>
     <string name="spaceship">Spaceship</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="library">Library</string>
+    <string name="social">Social</string>
+    <string name="log">Log</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
 </resources>

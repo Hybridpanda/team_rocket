@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/drawable/nav_bar_selector.xml" value="0.4203125" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/activity_navigation.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/menu/bottom_nav_menu.xml" value="0.4041666666666667" />
       </map>
     </option>
   </component>
