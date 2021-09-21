@@ -10,21 +10,22 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
+        android:layout_width="177dp"
+        android:layout_height="57dp"
+        android:backgroundTint="#383849"
+        android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintVertical_bias="0.84" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot Password"
+        android:text="@string/forgot_password"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,16 +40,18 @@
         android:layout_height="46dp"
         android:backgroundTint="@color/white"
         android:ems="10"
+        android:hint="@string/password"
         android:inputType="textPassword"
-        android:text="@color/white"
         android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.642"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck"
+        android:autofillHints="Password" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
@@ -57,7 +60,7 @@
         android:backgroundTint="@color/white"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Username"
+        android:text="@string/username"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,13 +68,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.528"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck"
+        android:autofillHints="Username" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Novulis"
+        android:text="@string/novulis"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#FFFFFF"
         android:textSize="65sp"
@@ -91,5 +95,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.16"
-        app:srcCompat="@drawable/clipart2259762" />
+        app:srcCompat="@drawable/clipart2259762"
+        android:contentDescription="@string/spaceship" />
 </androidx.constraintlayout.widget.ConstraintLayout>
