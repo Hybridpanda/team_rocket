@@ -7,27 +7,27 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.novulis_dev_app_v01.HomeFragment"
+        android:name="com.example.novulis_dev_app_v01.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.novulis_dev_app_v01.ProfileFragment"
+        android:name="com.example.novulis_dev_app_v01.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/logFragment"
-        android:name="com.example.novulis_dev_app_v01.LogFragment"
+        android:name="com.example.novulis_dev_app_v01.fragments.LogFragment"
         android:label="fragment_log"
         tools:layout="@layout/fragment_log" />
     <fragment
         android:id="@+id/socialFragment"
-        android:name="com.example.novulis_dev_app_v01.SocialFragment"
+        android:name="com.example.novulis_dev_app_v01.fragments.SocialFragment"
         android:label="fragment_social"
         tools:layout="@layout/fragment_social" />
     <fragment
         android:id="@+id/libraryFragment"
-        android:name="com.example.novulis_dev_app_v01.LibraryFragment"
+        android:name="com.example.novulis_dev_app_v01.fragments.LibraryFragment"
         android:label="fragment_library"
         tools:layout="@layout/fragment_library" />
 </navigation>

@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/loginBtn"
         android:layout_width="177dp"
         android:layout_height="57dp"
         android:backgroundTint="#383849"
