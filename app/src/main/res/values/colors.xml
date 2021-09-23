@@ -11,7 +11,8 @@
     # Our chosen Colour palette
 
     <color name="backgroundGrey">#181B2C</color>
-    <color name="highlightGrey">#383849</color>
+    <color name="highlightGrey">#707070</color>
+    <color name="grey">#383849</color>
     <color name="purpleBtn">#8E3FAA</color>
     <color name="selected">#E1914B</color>
 </resources>

@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/drawable/current_goal.xml" value="0.8" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/drawable/nav_bar_selector.xml" value="0.4203125" />
+        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/drawable/underline.xml" value="0.4203125" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/activity_main.xml" value="0.4" />
-        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/activity_navigation.xml" value="0.2" />
-        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_home.xml" value="0.39010416666666664" />
+        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/activity_navigation.xml" value="0.4" />
+        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_home.xml" value="0.4" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_library.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_log.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_profile.xml" value="0.4041666666666667" />

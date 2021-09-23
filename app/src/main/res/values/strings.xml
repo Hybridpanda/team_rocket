@@ -17,4 +17,17 @@
     <string name="home">Home</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="currentgoal">Current goal screen element</string>
+    <string name="current_goal">Current Goal</string>
+    <string name="goalPlaceholder">Read 100 pages each week</string>
+    <string name="change_ngoal">Change \nGoal</string>
+    <string name="placeholder_book">Percy Jackson and the Lightning Thief</string>
+    <string name="currently_reading">Currently Reading</string>
+    <string name="reading_time_logged">Reading\n Time Logged</string>
+    <string name="pages_read">Pages Read</string>
+    <string name="fuel">Fuel</string>
+    <string name="placeholder_time">4h</string>
+    <string name="placeholder_pages">60 \npgs</string>
+    <string name="placeholder_fuel">50%</string>
+    <string name="placeholder_fraction">60\n/100</string>
 </resources>
