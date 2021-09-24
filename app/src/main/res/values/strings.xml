@@ -32,4 +32,6 @@
     <string name="placeholder_fraction">60\n/100</string>
     <string name="read_again">Read Again</string>
     <string name="club_books">Club Books</string>
+    <string name="thumbnail">Thumbnail</string>
+    <string name="author">Author</string>
 </resources>

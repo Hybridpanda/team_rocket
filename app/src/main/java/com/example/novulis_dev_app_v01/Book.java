@@ -3,15 +3,17 @@ package com.example.novulis_dev_app_v01;
 public class Book {
 
     private String title;
-    private String blurb;
+    private String description;
     private int pageCount;
     private String cover;
+    private String author;
 
-    public Book(String title, String blurb, int pageCount, String cover) {
+    public Book(String title, String description, int pageCount, String cover, String author) {
         this.title = title;
-        this.blurb = blurb;
+        this.description = description;
         this.pageCount = pageCount;
         this.cover = cover;
+        this.author = author;
     }
 
     public String getTitle() {
@@ -22,12 +24,12 @@ public class Book {
         this.title = title;
     }
 
-    public String getBlurb() {
-        return blurb;
+    public String getDescription() {
+        return description;
     }
 
-    public void setBlurb(String blurb) {
-        this.blurb = blurb;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getPageCount() {
@@ -44,5 +46,12 @@ public class Book {
 
     public void setCover(String cover) {
         this.cover = cover;
+    }
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
