@@ -30,4 +30,6 @@
     <string name="placeholder_pages">60 \npgs</string>
     <string name="placeholder_fuel">50%</string>
     <string name="placeholder_fraction">60\n/100</string>
+    <string name="read_again">Read Again</string>
+    <string name="club_books">Club Books</string>
 </resources>

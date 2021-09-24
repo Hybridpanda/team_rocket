@@ -1,12 +1,21 @@
 package com.example.novulis_dev_app_v01;
 
+import static android.os.FileUtils.copy;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.novulis_dev_app_v01.fragments.HomeFragment;
 import com.example.novulis_dev_app_v01.fragments.LibraryFragment;
@@ -17,19 +26,40 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarItemView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+
 public class NavigationActivity extends AppCompatActivity {
 
+    private static final int IO_BUFFER_SIZE = 4 * 1024;
+    private static final String TAG = "TAG";
+    // Nav bar variables
     BottomNavigationView bottomNavigationView;
     NavigationBarItemView navigationBarItemView;
     FrameLayout frameLayout;
+
+    // Library view variables
+    String testBookJson = "https://www.googleapis.com/books/v1/volumes?q=isbn:9780007128457";
+    RecyclerView recyclerView;
+    ArrayList<Book> library;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
 
-        loadFragments(new HomeFragment());
 
+        // Load the fragments and set listener for nav bar
+        loadFragments(new HomeFragment());
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -60,6 +90,7 @@ public class NavigationActivity extends AppCompatActivity {
                 return loadFragments(fragment);
             }
         });
+
     }
 
     public boolean loadFragments(Fragment fragment) {
@@ -70,4 +101,8 @@ public class NavigationActivity extends AppCompatActivity {
         }
         return true;
     }
+
+
+
 }
+
