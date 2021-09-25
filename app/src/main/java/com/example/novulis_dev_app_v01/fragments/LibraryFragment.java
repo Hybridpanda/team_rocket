@@ -4,13 +4,10 @@ import static android.os.FileUtils.copy;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -38,10 +35,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -65,7 +59,9 @@ public class LibraryFragment extends Fragment {
 
     // Copied Variables
     private Context mContext;
-    private RecyclerView mRecyclerView;
+    private RecyclerView currentlyReadingRecyclerView;
+    private RecyclerView clubBooksRecyclerView;
+    private RecyclerView readAgainRecyclerView;
     private ArrayList<Book> mBooks;
     private RecyclerViewAdapter mAdapter;
     private RequestQueue mRequestQueue;
@@ -109,9 +105,19 @@ public class LibraryFragment extends Fragment {
         authorTv = v.findViewById(R.id.authorTv);
         bookCoverIv = v.findViewById(R.id.bookCoverIv);
 
-        mRecyclerView = v.findViewById(R.id.currentlyReadingRV);
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        currentlyReadingRecyclerView = v.findViewById(R.id.currentlyReadingRV);
+        currentlyReadingRecyclerView.setHasFixedSize(true);
+        currentlyReadingRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+
+        clubBooksRecyclerView = v.findViewById(R.id.clubBooksRV);
+        clubBooksRecyclerView.setHasFixedSize(true);
+        clubBooksRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+
+        readAgainRecyclerView = v.findViewById(R.id.readAgainRV);
+        readAgainRecyclerView.setHasFixedSize(true);
+        readAgainRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+
+
         mBooks = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(mContext);
 
@@ -153,7 +159,7 @@ public class LibraryFragment extends Fragment {
 //        }
 //    }
 
-    private void parseJson(String key) {
+    private void parseJson(String key, RecyclerView rv) {
 
         final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, key.toString(), null,
                 new Response.Listener<JSONObject>() {
@@ -215,7 +221,8 @@ public class LibraryFragment extends Fragment {
 
 
                                 mAdapter = new RecyclerViewAdapter(mContext , mBooks);
-                                mRecyclerView.setAdapter(mAdapter);
+                                rv.setAdapter(mAdapter);
+                                rv.setLayoutManager(new LinearLayoutManager(mContext, rv.HORIZONTAL, false));
                             }
 
 
@@ -234,72 +241,72 @@ public class LibraryFragment extends Fragment {
         });
         mRequestQueue.add(request);
     }
-    private class JsonTask extends AsyncTask<String, String, String> {
-
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-            pd.setMessage("Please wait");
-            pd.setCancelable(false);
-            pd.show();
-        }
-
-        protected String doInBackground(String... params) {
-
-
-            HttpURLConnection connection = null;
-            BufferedReader reader = null;
-
-            try {
-                URL url = new URL(params[0]);
-                connection = (HttpURLConnection) url.openConnection();
-                connection.connect();
-
-
-                InputStream stream = connection.getInputStream();
-
-                reader = new BufferedReader(new InputStreamReader(stream));
-
-                StringBuffer buffer = new StringBuffer();
-                String line = "";
-
-                while ((line = reader.readLine()) != null) {
-                    buffer.append(line+"\n");
-                    Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
-
-                }
-
-                return buffer.toString();
-
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                if (connection != null) {
-                    connection.disconnect();
-                }
-                try {
-                    if (reader != null) {
-                        reader.close();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            if (pd.isShowing()){
-                pd.dismiss();
-            }
-            parseJson(result);
-        }
-    }
+//    private class JsonTask extends AsyncTask<String, String, String> {
+//
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//
+//            pd.setMessage("Please wait");
+//            pd.setCancelable(false);
+//            pd.show();
+//        }
+//
+//        protected String doInBackground(String... params) {
+//
+//
+//            HttpURLConnection connection = null;
+//            BufferedReader reader = null;
+//
+//            try {
+//                URL url = new URL(params[0]);
+//                connection = (HttpURLConnection) url.openConnection();
+//                connection.connect();
+//
+//
+//                InputStream stream = connection.getInputStream();
+//
+//                reader = new BufferedReader(new InputStreamReader(stream));
+//
+//                StringBuffer buffer = new StringBuffer();
+//                String line = "";
+//
+//                while ((line = reader.readLine()) != null) {
+//                    buffer.append(line+"\n");
+//                    Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
+//
+//                }
+//
+//                return buffer.toString();
+//
+//
+//            } catch (MalformedURLException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } finally {
+//                if (connection != null) {
+//                    connection.disconnect();
+//                }
+//                try {
+//                    if (reader != null) {
+//                        reader.close();
+//                    }
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            return null;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String result) {
+//            super.onPostExecute(result);
+//            if (pd.isShowing()){
+//                pd.dismiss();
+//            }
+//            parseJson(result);
+//        }
+//    }
 
     private boolean Read_network_state(Context context)
     {    boolean is_connected;
@@ -318,7 +325,7 @@ public class LibraryFragment extends Fragment {
         if(!is_connected)
         {
             error_message.setText("Failed to load data");
-            mRecyclerView.setVisibility(View.INVISIBLE);
+            currentlyReadingRecyclerView.setVisibility(View.INVISIBLE);
             error_message.setVisibility(View.VISIBLE);
             return;
         }
@@ -333,9 +340,18 @@ public class LibraryFragment extends Fragment {
 //        }
         String final_query=search_query.replace(" ","+");
         Uri uri=Uri.parse(BASE_URL+final_query);
-        Uri.Builder buider = uri.buildUpon();
+        Uri.Builder builder = uri.buildUpon();
 
-        parseJson(buider.toString());
+        parseJson(buildQuery("Harry Potter").toString(), currentlyReadingRecyclerView);
+        parseJson(buildQuery("Percy Jackson").toString(), clubBooksRecyclerView);
+        parseJson(buildQuery("Dune").toString(), readAgainRecyclerView);
+    }
+
+    private Uri.Builder buildQuery(String searchString) {
+        String final_query=searchString.replace(" ","+");
+        Uri uri=Uri.parse(BASE_URL+final_query);
+        //Uri.Builder builder = uri.buildUpon();
+        return uri.buildUpon();
     }
 
 

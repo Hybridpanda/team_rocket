@@ -34,4 +34,5 @@
     <string name="club_books">Club Books</string>
     <string name="thumbnail">Thumbnail</string>
     <string name="author">Author</string>
+    <string name="banner_placeholder_for_library">Banner placeholder for library</string>
 </resources>
