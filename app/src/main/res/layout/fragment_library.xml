@@ -34,9 +34,9 @@
                 android:id="@+id/currentlyReadingRV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/book_raw_item"
+                android:orientation="horizontal"
                 android:scrollbars="horizontal"
-                android:orientation="horizontal"/>
+                tools:listitem="@layout/book_raw_item" />
         </RelativeLayout>
     </ScrollView>
 
