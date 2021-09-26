@@ -15,10 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.novulis_dev_app_v01.Book;
+import com.example.novulis_dev_app_v01.BookActivity;
+import com.example.novulis_dev_app_v01.model.Book;
 //import com.google.android.gms.fido.fido2.api.common.RequestOptions;
 import com.example.novulis_dev_app_v01.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -44,19 +44,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         LayoutInflater inflater = LayoutInflater.from(mContext);
         view = inflater.inflate(R.layout.book_raw_item , parent , false);
         final MyViewHolder viewHolder =  new MyViewHolder(view);
-//        viewHolder.container.setOnClickListener(new View.OnClickListener() {
-////            @Override
-////            public void onClick(View v) {
-////                Intent i = new Intent(mContext , BookActivity.class);
-////                int pos = viewHolder.getAdapterPosition();
-////                i.putExtra("book_title" ,mData.get(pos).getTitle());
-////                i.putExtra("book_author" ,mData.get(pos).getAuthor());
-////                i.putExtra("book_desc" ,mData.get(pos).getDescription());
-////
-////
-////                mContext.startActivity(i);
-////            }
-//        });
+        viewHolder.container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mContext , BookActivity.class);
+                int pos = viewHolder.getAdapterPosition();
+                i.putExtra("book_title" ,mData.get(pos).getTitle());
+                i.putExtra("book_author" ,mData.get(pos).getAuthor());
+                i.putExtra("book_desc" ,mData.get(pos).getDescription());
+                i.putExtra("book_thumbnail", mData.get(pos).getCover());
+
+
+                mContext.startActivity(i);
+            }
+        });
         return viewHolder;
     }
 

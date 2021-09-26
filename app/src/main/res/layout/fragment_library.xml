@@ -19,40 +19,53 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:scaleType="centerCrop"
-
-                android:src="@drawable/dune_banner"
-                android:foreground="@drawable/banner_overlay"
-                android:contentDescription="@string/banner_placeholder_for_library" />
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
 
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recommended_dune"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="@+id/imageView4"
+                    app:layout_constraintTop_toTopOf="@+id/imageView4"
+                    android:elevation="1dp"
+                    app:layout_constraintVertical_bias="0.872" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:contentDescription="@string/banner_placeholder_for_library"
+
+                    android:foreground="@drawable/banner_overlay"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/dune_banner"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/discoverBtn"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
                     android:backgroundTint="#383849"
-                    android:text="Discover more Books"
+                    android:text="@string/discover_more_books"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-<!--                    android:textAlignment="viewEnd"-->
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+<!--                    android:textAlignment="viewEnd"--></androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/textView29"

@@ -7,35 +7,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.novulis_dev_app_v01.fragments.HomeFragment;
 import com.example.novulis_dev_app_v01.fragments.LibraryFragment;
 import com.example.novulis_dev_app_v01.fragments.LogFragment;
 import com.example.novulis_dev_app_v01.fragments.ProfileFragment;
 import com.example.novulis_dev_app_v01.fragments.SocialFragment;
+import com.example.novulis_dev_app_v01.model.Book;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarItemView;
 import com.google.android.material.navigation.NavigationBarView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 
 public class NavigationActivity extends AppCompatActivity {

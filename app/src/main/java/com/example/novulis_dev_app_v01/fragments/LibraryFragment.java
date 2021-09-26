@@ -4,10 +4,10 @@ import static android.os.FileUtils.copy;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,7 +28,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.novulis_dev_app_v01.Book;
+import com.example.novulis_dev_app_v01.MainActivity;
+import com.example.novulis_dev_app_v01.NavigationActivity;
+import com.example.novulis_dev_app_v01.SearchActivity;
+import com.example.novulis_dev_app_v01.model.Book;
 import com.example.novulis_dev_app_v01.R;
 import com.example.novulis_dev_app_v01.adapters.RecyclerViewAdapter;
 
@@ -35,13 +39,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 
 public class LibraryFragment extends Fragment {
@@ -49,6 +46,9 @@ public class LibraryFragment extends Fragment {
     // Constants
     private static final int IO_BUFFER_SIZE = 4 * 1024;
     private static final String TAG = "TAG";
+
+    // Discover button
+    Button discoverBtn;
 
     // Library card test ID's
     TextView bookTitleTv;
@@ -100,7 +100,11 @@ public class LibraryFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_library, container, false);
 
         pd = new ProgressDialog(v.getContext());
+        pd.setMessage("Please wait");
+        pd.setCancelable(false);
+        pd.show();
 
+        discoverBtn = v.findViewById(R.id.discoverBtn);
         bookTitleTv = v.findViewById(R.id.bookTitleTv);
         authorTv = v.findViewById(R.id.authorTv);
         bookCoverIv = v.findViewById(R.id.bookCoverIv);
@@ -121,9 +125,20 @@ public class LibraryFragment extends Fragment {
         mBooks = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(mContext);
 
+        discoverBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
         // Import users library
         //new JsonTask().execute(testBookJson);
         search();
+        if (pd.isShowing()){
+            pd.dismiss();
+        }
 
         return v;
     }

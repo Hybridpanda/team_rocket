@@ -35,4 +35,7 @@
     <string name="thumbnail">Thumbnail</string>
     <string name="author">Author</string>
     <string name="banner_placeholder_for_library">Banner placeholder for library</string>
+    <string name="discover_more_books">Discover more Books</string>
+    <string name="recommended_dune">Recommended: Dune</string>
+    <string name="book_description">Book Description</string>
 </resources>
