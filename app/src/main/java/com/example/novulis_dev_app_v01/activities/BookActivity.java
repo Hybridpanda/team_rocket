@@ -1,4 +1,4 @@
-package com.example.novulis_dev_app_v01;
+package com.example.novulis_dev_app_v01.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.novulis_dev_app_v01.R;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 public class BookActivity extends AppCompatActivity {

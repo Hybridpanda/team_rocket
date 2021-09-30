@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,9 +29,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.novulis_dev_app_v01.MainActivity;
-import com.example.novulis_dev_app_v01.NavigationActivity;
-import com.example.novulis_dev_app_v01.SearchActivity;
+import com.example.novulis_dev_app_v01.activities.SearchActivity;
 import com.example.novulis_dev_app_v01.model.Book;
 import com.example.novulis_dev_app_v01.R;
 import com.example.novulis_dev_app_v01.adapters.RecyclerViewAdapter;
@@ -39,7 +38,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LibraryFragment extends Fragment {
 
@@ -62,9 +68,15 @@ public class LibraryFragment extends Fragment {
     private RecyclerView currentlyReadingRecyclerView;
     private RecyclerView clubBooksRecyclerView;
     private RecyclerView readAgainRecyclerView;
+
     private ArrayList<Book> mBooks;
     private RecyclerViewAdapter mAdapter;
     private RequestQueue mRequestQueue;
+    private ArrayList<Book> library;
+
+    private ArrayList<Book> currentBooks;
+    private ArrayList<Book> clubBooks;
+    private ArrayList<Book> readAgain;
 
     private static  final  String BASE_URL="https://www.googleapis.com/books/v1/volumes?q=";
 
@@ -123,6 +135,10 @@ public class LibraryFragment extends Fragment {
 
 
         mBooks = new ArrayList<>();
+        library = new ArrayList<Book>();
+        currentBooks = new ArrayList<Book>();
+        clubBooks = new ArrayList<Book>();
+        readAgain = new ArrayList<Book>();
         mRequestQueue = Volley.newRequestQueue(mContext);
 
         discoverBtn.setOnClickListener(new View.OnClickListener() {
@@ -135,12 +151,54 @@ public class LibraryFragment extends Fragment {
 
         // Import users library
         //new JsonTask().execute(testBookJson);
-        search();
+
+        try {
+            readLibrary();
+            System.out.println(library.toString());
+            mAdapter = new RecyclerViewAdapter(mContext , library);
+
+            currentlyReadingRecyclerView.setAdapter(new RecyclerViewAdapter(mContext , currentBooks));
+            currentlyReadingRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, currentlyReadingRecyclerView.HORIZONTAL, false));
+
+            clubBooksRecyclerView.setAdapter(new RecyclerViewAdapter(mContext , clubBooks));
+            clubBooksRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, clubBooksRecyclerView.HORIZONTAL, false));
+
+            readAgainRecyclerView.setAdapter(new RecyclerViewAdapter(mContext , readAgain));
+            readAgainRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, readAgainRecyclerView.HORIZONTAL, false));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        //search();
         if (pd.isShowing()){
             pd.dismiss();
         }
 
         return v;
+    }
+
+    public void readLibrary() throws IOException, ClassNotFoundException {
+        File file = new File(getContext().getFilesDir()+"/library.txt");
+        FileInputStream f = new FileInputStream(file);
+        ObjectInputStream s = new ObjectInputStream(f);
+        library = (ArrayList) s.readObject();
+        System.out.println("" + library.toString());
+        s.close();
+
+
+
+        for (Book b : library) {
+
+            if (b.getCategory().equals("Currently Reading")) {
+                currentBooks.add(b);
+            } else if (b.getCategory().equals("Club Books")) {
+                clubBooks.add(b);
+            } else if (b.getCategory().equals("Read Again")) {
+                readAgain.add(b);
+            }
+        }
     }
 
 //    public void parseJson(String stringFromInputStream) {
@@ -187,6 +245,8 @@ public class LibraryFragment extends Fragment {
                         int pageCount = 1000;
                         String categories = "No categories Available ";
                         String buy ="";
+                        String category = "No Category";
+                        int currentPage = 0;
 
                         String price = "NOT_FOR_SALE";
                         try {
@@ -232,12 +292,12 @@ public class LibraryFragment extends Fragment {
 
 //                                mBooks.add(new Book(title , author , publishedDate , description ,categories
 //                                        ,thumbnail,buy,previewLink,price,pageCount,url));
-                                mBooks.add(new Book(title, description, pageCount, thumbnail, author));
+                                mBooks.add(new Book(title, description, pageCount, thumbnail, author, category, currentPage));
 
 
-                                mAdapter = new RecyclerViewAdapter(mContext , mBooks);
-                                rv.setAdapter(mAdapter);
-                                rv.setLayoutManager(new LinearLayoutManager(mContext, rv.HORIZONTAL, false));
+//                                mAdapter = new RecyclerViewAdapter(mContext , mBooks);
+//                                rv.setAdapter(mAdapter);
+//                                rv.setLayoutManager(new LinearLayoutManager(mContext, rv.HORIZONTAL, false));
                             }
 
 

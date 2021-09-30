@@ -76,7 +76,7 @@
                 android:textColor="@color/white" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/clubBooksRV"
+                android:id="@+id/currentlyReadingRV"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 tools:listitem="@layout/book_raw_item">
@@ -92,7 +92,7 @@
                 android:textColor="@color/white" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/currentlyReadingRV"
+                android:id="@+id/clubBooksRV"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:orientation="horizontal"

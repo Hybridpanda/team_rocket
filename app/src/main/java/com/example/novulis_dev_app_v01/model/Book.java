@@ -1,19 +1,25 @@
 package com.example.novulis_dev_app_v01.model;
 
-public class Book {
+import java.io.Serializable;
+
+public class Book implements Serializable {
 
     private String title;
     private String description;
     private int pageCount;
     private String cover;
     private String author;
+    private String category;
+    private int currentPage;
 
-    public Book(String title, String description, int pageCount, String cover, String author) {
+    public Book(String title, String description, int pageCount, String cover, String author, String category, int currentPage) {
         this.title = title;
         this.description = description;
         this.pageCount = pageCount;
         this.cover = cover;
         this.author = author;
+        this.category = category;
+        this.currentPage = currentPage;
     }
 
     public String getTitle() {
@@ -53,5 +59,34 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getCurrentPage() {
+        return currentPage;
+    }
+
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", pageCount=" + pageCount +
+                ", cover='" + cover + '\'' +
+                ", author='" + author + '\'' +
+                ", category='" + category + '\'' +
+                ", currentPage=" + currentPage +
+                '}';
     }
 }

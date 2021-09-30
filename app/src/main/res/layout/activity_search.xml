@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchActivity"
+    tools:context=".activities.SearchActivity"
     android:background="@color/backgroundGrey">
 
     <EditText
@@ -112,9 +112,9 @@
         android:layout_marginBottom="632dp"
         android:elevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.755"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/searchBtn"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/searchBtn"
         app:layout_constraintTop_toTopOf="@+id/searchBtn"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_search"

@@ -1,4 +1,4 @@
-package com.example.novulis_dev_app_v01;
+package com.example.novulis_dev_app_v01.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +25,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.novulis_dev_app_v01.R;
 import com.example.novulis_dev_app_v01.adapters.RecyclerViewAdapter;
 import com.example.novulis_dev_app_v01.model.Book;
 
@@ -136,6 +136,8 @@ public class SearchActivity extends AppCompatActivity {
                         int pageCount = 1000;
                         String categories = "No categories Available ";
                         String buy ="";
+                        String category = "No Category";
+                        int currentPage = 0;
 
                         String price = "NOT_FOR_SALE";
                         try {
@@ -181,12 +183,12 @@ public class SearchActivity extends AppCompatActivity {
 
 //                                mBooks.add(new Book(title , author , publishedDate , description ,categories
 //                                        ,thumbnail,buy,previewLink,price,pageCount,url));
-                                mBooks.add(new Book(title, description, pageCount, thumbnail, author));
+                                mBooks.add(new Book(title, description, pageCount, thumbnail, author, category, currentPage));
 
 
-                                mAdapter = new RecyclerViewAdapter(SearchActivity.this , mBooks);
-                                rv.setAdapter(mAdapter);
-                                rv.setLayoutManager(new LinearLayoutManager(mContext, rv.VERTICAL, false));
+//                                mAdapter = new RecyclerViewAdapter(SearchActivity.this , mBooks);
+//                                rv.setAdapter(mAdapter);
+//                                rv.setLayoutManager(new LinearLayoutManager(mContext, rv.VERTICAL, false));
                             }
 
 

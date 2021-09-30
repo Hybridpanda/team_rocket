@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.novulis_dev_app_v01.R;
 
@@ -16,6 +18,9 @@ import com.example.novulis_dev_app_v01.R;
  * create an instance of this fragment.
  */
 public class LogFragment extends Fragment {
+
+    // Layout variables
+    Spinner logDropdown;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +66,13 @@ public class LogFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_log, container, false);
+        View v = inflater.inflate(R.layout.fragment_log, container, false);
+        logDropdown = v.findViewById(R.id.logDropdown);
+
+        String[] items = new String[] {"Chapters", "Pages", "Books"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, items);
+        logDropdown.setAdapter(adapter);
+
+        return v;
     }
 }

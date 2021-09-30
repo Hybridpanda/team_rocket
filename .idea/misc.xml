@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/drawable/banner_overlay.xml" value="0.246875" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/drawable/current_goal.xml" value="0.8" />
+        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/drawable/dropdown_btn.xml" value="0.2947916666666667" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/drawable/loading_shape.xml" value="0.24322916666666666" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/drawable/nav_bar_selector.xml" value="0.4203125" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/drawable/rounded_button.xml" value="0.246875" />
@@ -14,15 +15,15 @@
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/activity_book.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/activity_navigation.xml" value="0.4" />
-        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/activity_search.xml" value="0.5666666666666667" />
+        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/activity_search.xml" value="0.176" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/book_raw_item.xml" value="0.4" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_book.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_book_details.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_home.xml" value="0.4" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_library.xml" value="0.4" />
-        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_log.xml" value="0.4041666666666667" />
-        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_profile.xml" value="0.4041666666666667" />
-        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_social.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_log.xml" value="0.264" />
+        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/fragment_social.xml" value="0.264" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/menu/bottom_nav_menu.xml" value="0.4041666666666667" />
       </map>
     </option>

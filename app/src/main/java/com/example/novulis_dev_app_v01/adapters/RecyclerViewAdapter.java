@@ -15,12 +15,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.novulis_dev_app_v01.BookActivity;
+import com.example.novulis_dev_app_v01.activities.BookActivity;
 import com.example.novulis_dev_app_v01.model.Book;
 //import com.google.android.gms.fido.fido2.api.common.RequestOptions;
 import com.example.novulis_dev_app_v01.R;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
@@ -28,7 +31,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private List<Book> mData;
     private RequestOptions options;
 
-    public RecyclerViewAdapter(Context mContext, List<Book> mData) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<Book> mData) {
         this.mContext = mContext;
         this.mData = mData;
 
@@ -54,7 +57,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 i.putExtra("book_desc" ,mData.get(pos).getDescription());
                 i.putExtra("book_thumbnail", mData.get(pos).getCover());
 
-
                 mContext.startActivity(i);
             }
         });
@@ -63,7 +65,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
-
         Book book = mData.get(i);
         holder.tvTitle.setText(book.getTitle());
         holder.tvAuthor.setText(book.getAuthor());
@@ -73,7 +74,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         //load image from internet and set it into imageView using Glide
         Glide.with(mContext).load(book.getCover()).timeout(6000).apply(options).into(holder.ivThumbnail);
         //Picasso.with(mContext).load(book.getCover()).fit().into(holder.ivThumbnail);
-
     }
 
     @Override
