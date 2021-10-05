@@ -38,4 +38,7 @@
     <string name="discover_more_books">Discover more Books</string>
     <string name="recommended_dune">Recommended: Dune</string>
     <string name="book_description">Book Description</string>
+    <string name="todo">TODO</string>
+    <string name="clubs">Clubs</string>
+    <string name="forum">Forum</string>
 </resources>

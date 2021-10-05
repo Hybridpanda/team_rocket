@@ -33,6 +33,8 @@
         <entry key="..\:/team_rocket/app/src/main/res/layout/fragment_library.xml" value="0.3026041666666667" />
         <entry key="..\:/team_rocket/app/src/main/res/layout/fragment_log.xml" value="0.3026041666666667" />
         <entry key="..\:/team_rocket/app/src/main/res/layout/fragment_profile.xml" value="0.3026041666666667" />
+        <entry key="..\:/team_rocket/app/src/main/res/layout/fragment_social.xml" value="0.5" />
+        <entry key="..\:/team_rocket/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
       </map>
     </option>
   </component>
