@@ -53,6 +53,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View v) {
                 Intent i = new Intent(mContext , BookActivity.class);
                 int pos = viewHolder.getAdapterPosition();
+                i.putExtra("book", mData.get(pos));
                 i.putExtra("book_title" ,mData.get(pos).getTitle());
                 i.putExtra("book_author" ,mData.get(pos).getAuthor());
                 i.putExtra("book_desc" ,mData.get(pos).getDescription());

@@ -161,12 +161,14 @@
             tools:context=".activities.BookActivity">
 
             <TextView
+                android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Description"
-                android:textAlignment="center"
 
+                android:textAlignment="center"
                 android:textColor="@color/white"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/aa_description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -181,10 +183,26 @@
                 android:text="@string/book_description"
 
                 android:textColor="@color/white"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/bookTabLayout"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+            </com.google.android.material.tabs.TabLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/bookViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/bookTabLayout"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

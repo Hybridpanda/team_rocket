@@ -1,7 +1,5 @@
 package com.example.novulis_dev_app_v01.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,12 +8,27 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentContainer;
+import androidx.viewpager2.widget.ViewPager2;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.novulis_dev_app_v01.R;
+import com.example.novulis_dev_app_v01.adapters.TabAdapter;
+import com.example.novulis_dev_app_v01.model.Book;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class BookActivity extends AppCompatActivity {
+
+    TabLayout tabLayout;
+    ViewPager2 viewPager;
+    Book book;
+
+    private OnAboutDataReceivedListener mAboutDataListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +80,11 @@ public class BookActivity extends AppCompatActivity {
         tvCatag.setText(categories);
         tvPublishDate.setText(publishDate);
 
-        int currentProgress = (int) Math.floor(100 * currentPage/pageCount);
+        int currentProgress = 0;
+        if (pageCount != 0) {
+            currentProgress = (int) Math.floor(100 * currentPage/pageCount);
+        }
+
         System.out.println(currentProgress);
         bookProgressBar.setMax(100);
         bookProgressBar.setProgress(currentProgress);
@@ -98,5 +115,41 @@ public class BookActivity extends AppCompatActivity {
 
         Glide.with(this).load(thumbnail).timeout(6000).apply(requestOptions).into(ivThumbnail);
 
+        // Set up tabs
+
+        tabLayout = findViewById(R.id.bookTabLayout);
+        viewPager = findViewById(R.id.bookViewPager);
+
+//        tabLayout.addTab(tabLayout.newTab().setText("Details"));
+//        tabLayout.addTab(tabLayout.newTab().setText("Progress"));
+//        tabLayout.addTab(tabLayout.newTab().setText("Similar"));
+//        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        viewPager.setAdapter(new TabAdapter(this, this, 3, extras));
+        new TabLayoutMediator(tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
+            @Override
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                switch (position) {
+                    case 0:
+                        tab.setText("Details");
+                        return;
+                    case 1:
+                        tab.setText("Progress");
+                        return;
+                    case 2:
+                        tab.setText("Similar");
+                        return;
+                }
+
+            }
+        }).attach();
+    }
+
+    public interface OnAboutDataReceivedListener {
+        void onDataReceived(Book book);
+    }
+
+    public void setAboutDataListener(OnAboutDataReceivedListener listener) {
+        this.mAboutDataListener = listener;
     }
 }
