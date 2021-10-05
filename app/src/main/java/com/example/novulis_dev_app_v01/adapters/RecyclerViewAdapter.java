@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -56,6 +57,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 i.putExtra("book_author" ,mData.get(pos).getAuthor());
                 i.putExtra("book_desc" ,mData.get(pos).getDescription());
                 i.putExtra("book_thumbnail", mData.get(pos).getCover());
+                i.putExtra("book_pageCount", mData.get(pos).getPageCount());
+                i.putExtra("book_currentPage", mData.get(pos).getCurrentPage());
 
                 mContext.startActivity(i);
             }
@@ -68,6 +71,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Book book = mData.get(i);
         holder.tvTitle.setText(book.getTitle());
         holder.tvAuthor.setText(book.getAuthor());
+        holder.libraryProgressBar.setProgress((int) Math.floor(100 * book.getCurrentPage()/book.getPageCount()));
 //        holder.tvPrice.setText(book.getPrice());
 //        holder.tvCategory.setText(book.getCategories());
 
@@ -86,6 +90,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         ImageView ivThumbnail ;
         TextView tvTitle , tvAuthor;
         LinearLayout container ;
+        ProgressBar libraryProgressBar;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -93,6 +98,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tvTitle = itemView.findViewById(R.id.bookTitleTv);
             tvAuthor = itemView.findViewById(R.id.authorTv);
             container = itemView.findViewById(R.id.container);
+            libraryProgressBar = itemView.findViewById(R.id.libraryProgressBar);
 
 
         }

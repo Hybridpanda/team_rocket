@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="375dp"
+    android:layout_width="match_parent"
     android:layout_height="150dp"
     android:layout_marginTop="5dp"
     android:id="@+id/container"
     android:background="@color/backgroundGrey">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
@@ -30,7 +30,7 @@
             </ImageView>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="225dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center">
@@ -54,15 +54,23 @@
                     android:textAlignment="center"
                     android:text="Book author"/>
                 <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/libraryProgressBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp"/>
+
             </LinearLayout>
 
+            <Button
+                android:id="@+id/addToLibraryBtn"
+                android:layout_width="50dp"
+                android:layout_height="150dp"
+                android:text="Add"></Button>
+
         </LinearLayout>
+
+
 
     </androidx.cardview.widget.CardView>
 </LinearLayout>

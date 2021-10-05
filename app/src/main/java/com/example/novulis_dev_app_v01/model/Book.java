@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Book implements Serializable {
 
+    private String isbn;
     private String title;
     private String description;
     private int pageCount;
@@ -12,7 +13,8 @@ public class Book implements Serializable {
     private String category;
     private int currentPage;
 
-    public Book(String title, String description, int pageCount, String cover, String author, String category, int currentPage) {
+    public Book(String isbn, String title, String description, int pageCount, String cover, String author, String category, int currentPage) {
+        this.isbn = isbn;
         this.title = title;
         this.description = description;
         this.pageCount = pageCount;
@@ -77,10 +79,19 @@ public class Book implements Serializable {
         this.currentPage = currentPage;
     }
 
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
-                "title='" + title + '\'' +
+                "isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", pageCount=" + pageCount +
                 ", cover='" + cover + '\'' +

@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -30,6 +31,7 @@ public class BookActivity extends AppCompatActivity {
         String title =""
                 , authors ="", description="" , categories ="", publishDate=""
                 ,info ="", buy ="",preview ="" ,thumbnail ="";
+        int pageCount = 0, currentPage = 0;
         if(extras != null){
             title = extras.getString("book_title");
             authors = extras.getString("book_author");
@@ -40,6 +42,8 @@ public class BookActivity extends AppCompatActivity {
             buy = extras.getString("book_buy");
             preview = extras.getString("book_preview");
             thumbnail = extras.getString("book_thumbnail");
+            pageCount = extras.getInt("book_pageCount");
+            currentPage = extras.getInt("book_currentPage");
         }
 
         CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsingToolbar);
@@ -55,11 +59,18 @@ public class BookActivity extends AppCompatActivity {
 
         ImageView ivThumbnail = findViewById(R.id.aa_thumbnail);
 
+        ProgressBar bookProgressBar = findViewById(R.id.bookProgressBar);
+
         tvTitle.setText(title);
         tvAuthors.setText(authors);
         tvDesc.setText(description);
         tvCatag.setText(categories);
         tvPublishDate.setText(publishDate);
+
+        int currentProgress = (int) Math.floor(100 * currentPage/pageCount);
+        System.out.println(currentProgress);
+        bookProgressBar.setMax(100);
+        bookProgressBar.setProgress(currentProgress);
 
         final String finalInfo = info;
         tvInfo.setOnClickListener(new View.OnClickListener() {

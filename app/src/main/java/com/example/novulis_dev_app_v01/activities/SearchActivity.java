@@ -27,16 +27,24 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.novulis_dev_app_v01.R;
 import com.example.novulis_dev_app_v01.adapters.RecyclerViewAdapter;
+import com.example.novulis_dev_app_v01.adapters.SearchRecyclerViewAdapter;
 import com.example.novulis_dev_app_v01.model.Book;
+import com.example.novulis_dev_app_v01.model.Profile;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
 
+    private Profile profile;
+    private ArrayList library;
     private EditText searchEditText;
     private Button searchBtn; //Not yet set
     private Button genreBtn;
@@ -56,7 +64,7 @@ public class SearchActivity extends AppCompatActivity {
     private Context mContext;
     private RecyclerView searchResultsRecyclerView;
     private ArrayList<Book> mBooks;
-    private RecyclerViewAdapter mAdapter;
+    private SearchRecyclerViewAdapter mAdapter;
     private RequestQueue mRequestQueue;
 
     private static  final  String BASE_URL="https://www.googleapis.com/books/v1/volumes?q=";
@@ -77,6 +85,9 @@ public class SearchActivity extends AppCompatActivity {
         searchResultsRecyclerView.setHasFixedSize(true);
         searchResultsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        mContext = this;
+        profile = new Profile();
+        library = profile.getLibrary(mContext);
         mBooks = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(this);
 
@@ -129,6 +140,7 @@ public class SearchActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        String isbn = "0";
                         String title ="";
                         String author ="";
                         String publishedDate = "NoT Available";
@@ -147,48 +159,53 @@ public class SearchActivity extends AppCompatActivity {
                                 JSONObject item = items.getJSONObject(i);
                                 JSONObject volumeInfo = item.getJSONObject("volumeInfo");
 
+                                if (volumeInfo.has("industryIdentifiers")) {
+
+                                    try {
+                                        title = volumeInfo.getString("title");
+
+                                        JSONArray authors = volumeInfo.getJSONArray("authors");
+                                        if (authors.length() == 1) {
+                                            author = authors.getString(0);
+                                        } else {
+                                            author = authors.getString(0) + "|" + authors.getString(1);
+                                        }
 
 
-                                try{
-                                    title = volumeInfo.getString("title");
+                                        publishedDate = volumeInfo.getString("publishedDate");
+                                        pageCount = volumeInfo.getInt("pageCount");
 
-                                    JSONArray authors = volumeInfo.getJSONArray("authors");
-                                    if(authors.length() == 1){
-                                        author = authors.getString(0);
-                                    }else {
-                                        author = authors.getString(0) + "|" +authors.getString(1);
+
+                                        JSONObject saleInfo = item.getJSONObject("saleInfo");
+                                        JSONObject listPrice = saleInfo.getJSONObject("listPrice");
+                                        price = listPrice.getString("amount") + " " + listPrice.getString("currencyCode");
+                                        description = volumeInfo.getString("description");
+                                        buy = saleInfo.getString("buyLink");
+                                        categories = volumeInfo.getJSONArray("categories").getString(0);
+
+                                        // Check for the ISBN_13
+                                        JSONArray isbns = volumeInfo.getJSONArray("industryIdentifiers");
+                                        for (int j = 0; j < isbns.length(); j++) {
+                                            if (isbns.getJSONObject(j).getString("type").equals("ISBN_13")) {
+                                                isbn = volumeInfo.getJSONArray("industryIdentifiers").getJSONObject(j).getString("identifier");
+                                            }
+                                        }
+
+                                    } catch (Exception e) {
+
                                     }
+                                    String thumbnail = volumeInfo.getJSONObject("imageLinks").getString("thumbnail");
+                                    String previewLink = volumeInfo.getString("previewLink");
+                                    String url = volumeInfo.getString("infoLink");
 
+                                    Book book = new Book(isbn, title, description, pageCount, thumbnail, author, category, 0);
+                                    mBooks.add(book);
+//                                    library = getLibrary();
 
-                                    publishedDate = volumeInfo.getString("publishedDate");
-                                    pageCount = volumeInfo.getInt("pageCount");
-
-
-
-                                    JSONObject saleInfo = item.getJSONObject("saleInfo");
-                                    JSONObject listPrice = saleInfo.getJSONObject("listPrice");
-                                    price = listPrice.getString("amount") + " " +listPrice.getString("currencyCode");
-                                    description = volumeInfo.getString("description");
-                                    buy = saleInfo.getString("buyLink");
-                                    categories = volumeInfo.getJSONArray("categories").getString(0);
-
-                                }catch (Exception e){
-
+                                    mAdapter = new SearchRecyclerViewAdapter(library, mBooks, SearchActivity.this);
+                                    rv.setAdapter(mAdapter);
+                                    rv.setLayoutManager(new LinearLayoutManager(mContext, rv.VERTICAL, false));
                                 }
-                                String thumbnail = volumeInfo.getJSONObject("imageLinks").getString("thumbnail");
-
-                                String previewLink = volumeInfo.getString("previewLink");
-                                String url = volumeInfo.getString("infoLink");
-
-
-//                                mBooks.add(new Book(title , author , publishedDate , description ,categories
-//                                        ,thumbnail,buy,previewLink,price,pageCount,url));
-                                mBooks.add(new Book(title, description, pageCount, thumbnail, author, category, currentPage));
-
-
-//                                mAdapter = new RecyclerViewAdapter(SearchActivity.this , mBooks);
-//                                rv.setAdapter(mAdapter);
-//                                rv.setLayoutManager(new LinearLayoutManager(mContext, rv.VERTICAL, false));
                             }
 
 
@@ -239,7 +256,6 @@ public class SearchActivity extends AppCompatActivity {
     private Uri.Builder buildQuery(String searchString) {
         String final_query=searchString.replace(" ","+");
         Uri uri=Uri.parse(BASE_URL+final_query);
-        //Uri.Builder builder = uri.buildUpon();
         return uri.buildUpon();
     }
 
