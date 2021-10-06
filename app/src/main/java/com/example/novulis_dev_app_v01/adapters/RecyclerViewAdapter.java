@@ -60,6 +60,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 i.putExtra("book_thumbnail", mData.get(pos).getCover());
                 i.putExtra("book_pageCount", mData.get(pos).getPageCount());
                 i.putExtra("book_currentPage", mData.get(pos).getCurrentPage());
+                i.putExtra("book_genre", mData.get(pos).getGenre());
+                i.putExtra("book_preview", mData.get(pos).getPreview());
 
                 mContext.startActivity(i);
             }

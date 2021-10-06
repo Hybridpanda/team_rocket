@@ -70,7 +70,6 @@ public class BookActivity extends AppCompatActivity {
         TextView tvDesc = findViewById(R.id.aa_description);
         TextView tvCatag = findViewById(R.id.aa_categorie);
         TextView tvPublishDate = findViewById(R.id.aa_publish_date);
-        TextView tvInfo = findViewById(R.id.aa_info);
         TextView tvPreview = findViewById(R.id.aa_preview);
 
         ImageView ivThumbnail = findViewById(R.id.aa_thumbnail);
@@ -91,15 +90,6 @@ public class BookActivity extends AppCompatActivity {
         System.out.println(currentProgress);
         bookProgressBar.setMax(100);
         bookProgressBar.setProgress(currentProgress);
-
-        final String finalInfo = info;
-        tvInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(finalInfo));
-                startActivity(i);
-            }
-        });
 
 
         final String finalPreview = preview;

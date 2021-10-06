@@ -4,8 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.Environment;
-import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -104,7 +102,9 @@ public class Profile {
                         String isbn = "0";
                         int pageCount = 1000;
                         String categories = "No categories Available ";
+                        String genre = "No genre available";
                         String category = "Club Books";
+                        String previewLink = "No preview available";
                         String buy ="";
                         int currentPage = 0;
 
@@ -171,7 +171,7 @@ public class Profile {
                                         }
 
 
-                                        categories = volumeInfo.getJSONArray("categories").getString(0);
+                                        genre = volumeInfo.getJSONArray("categories").getString(0);
                                         JSONArray isbns = volumeInfo.getJSONArray("industryIdentifiers");
                                         for (int i = 0; i < isbns.length(); i++) {
                                             if (isbns.getJSONObject(i).getString("type").equals("ISBN_13")) {
@@ -180,7 +180,7 @@ public class Profile {
                                         }
 
 
-                                        String previewLink = volumeInfo.getString("previewLink");
+                                        previewLink = volumeInfo.getString("previewLink");
                                         String url = volumeInfo.getString("infoLink");
 
                                     } catch (Exception e) {
@@ -193,7 +193,7 @@ public class Profile {
                                         category = "Read Again";
                                     }
 
-                                    Book book = new Book(isbn, title, description, pageCount, thumbnail, author, category, currentPage);
+                                    Book book = new Book(isbn, title, description, pageCount, thumbnail, author, category, currentPage, genre, previewLink);
                                     System.out.println(book.toString());
                                     library.add(book);
                                 }

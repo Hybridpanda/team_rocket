@@ -12,8 +12,10 @@ public class Book implements Serializable {
     private String author;
     private String category;
     private int currentPage;
+    private String genre;
+    private String preview;
 
-    public Book(String isbn, String title, String description, int pageCount, String cover, String author, String category, int currentPage) {
+    public Book(String isbn, String title, String description, int pageCount, String cover, String author, String category, int currentPage, String genre, String preview) {
         this.isbn = isbn;
         this.title = title;
         this.description = description;
@@ -22,6 +24,8 @@ public class Book implements Serializable {
         this.author = author;
         this.category = category;
         this.currentPage = currentPage;
+        this.genre = genre;
+        this.preview = preview;
     }
 
     public String getTitle() {
@@ -99,5 +103,21 @@ public class Book implements Serializable {
                 ", category='" + category + '\'' +
                 ", currentPage=" + currentPage +
                 '}';
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getPreview() {
+        return preview;
+    }
+
+    public void setPreview(String preview) {
+        this.preview = preview;
     }
 }

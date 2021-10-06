@@ -65,6 +65,8 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
                 i.putExtra("book_author" ,searchResults.get(pos).getAuthor());
                 i.putExtra("book_desc" ,searchResults.get(pos).getDescription());
                 i.putExtra("book_thumbnail", searchResults.get(pos).getCover());
+                i.putExtra("book_genre", searchResults.get(pos).getGenre());
+                i.putExtra("book_preview", searchResults.get(pos).getPreview());
 
                 mContext.startActivity(i);
             }

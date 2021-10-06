@@ -25,18 +25,18 @@
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:text="Progress Fragment"
+            android:text="Current Goal"
             android:textColor="@color/white"
             android:textStyle="italic" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="350dp"
-                android:layout_height="150dp"
+                android:layout_height="100dp"
                 android:contentDescription="@string/currentgoal"
                 android:src="@drawable/current_goal"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -44,33 +44,21 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/current_goal"
-                android:textColor="#FFFFFF"
-                app:layout_constraintStart_toStartOf="@+id/imageView3"
-                app:layout_constraintTop_toTopOf="@+id/imageView3" />
+                app:layout_constraintVertical_bias="1.0" />
 
             <ProgressBar
                 android:id="@+id/currentGoalProgress"
-                style="?android:attr/progressBarStyle"
+                style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:indeterminate="true"
-                android:indeterminateTint="@color/selected"
-                android:indeterminateTintMode="src_atop"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/custom_round_progress"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView3"
                 app:layout_constraintEnd_toEndOf="@+id/imageView3"
-                app:layout_constraintHorizontal_bias="0.096"
+                app:layout_constraintHorizontal_bias="0.109"
                 app:layout_constraintStart_toStartOf="@+id/imageView3"
                 app:layout_constraintTop_toTopOf="@+id/imageView3"
-                app:layout_constraintVertical_bias="0.686" />
+                app:layout_constraintVertical_bias="0.321" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -83,7 +71,7 @@
                 app:layout_constraintHorizontal_bias="0.575"
                 app:layout_constraintStart_toStartOf="@+id/imageView3"
                 app:layout_constraintTop_toTopOf="@+id/imageView3"
-                app:layout_constraintVertical_bias="0.305" />
+                app:layout_constraintVertical_bias="0.197" />
 
             <TextView
                 android:id="@+id/textView14"
@@ -93,26 +81,27 @@
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="@+id/currentGoalProgress"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/currentGoalProgress"
-                app:layout_constraintHorizontal_bias="0.592"
+                app:layout_constraintHorizontal_bias="0.555"
                 app:layout_constraintStart_toStartOf="@+id/currentGoalProgress"
-                app:layout_constraintTop_toTopOf="@+id/currentGoalProgress"
-                app:layout_constraintVertical_bias="0.521"
+                app:layout_constraintTop_toBottomOf="@+id/currentGoalProgress"
+                app:layout_constraintVertical_bias="0.272"
                 tools:ignore="SmallSp" />
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="197dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="92dp"
                 android:backgroundTint="@color/purpleBtn"
                 android:text="@string/change_ngoal"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                app:layout_constraintHorizontal_bias="0.673"
                 app:layout_constraintStart_toStartOf="@+id/imageView3"
                 app:layout_constraintTop_toTopOf="@+id/imageView3"
-                app:layout_constraintVertical_bias="0.7" />
+                app:layout_constraintVertical_bias="0.86" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

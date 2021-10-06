@@ -26,7 +26,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.novulis_dev_app_v01.R;
-import com.example.novulis_dev_app_v01.adapters.RecyclerViewAdapter;
 import com.example.novulis_dev_app_v01.adapters.SearchRecyclerViewAdapter;
 import com.example.novulis_dev_app_v01.model.Book;
 import com.example.novulis_dev_app_v01.model.Profile;
@@ -35,10 +34,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
@@ -147,6 +142,7 @@ public class SearchActivity extends AppCompatActivity {
                         String description = "No Description";
                         int pageCount = 1000;
                         String categories = "No categories Available ";
+                        String genre= "No genre available";
                         String buy ="";
                         String category = "No Category";
                         int currentPage = 0;
@@ -181,7 +177,7 @@ public class SearchActivity extends AppCompatActivity {
                                         price = listPrice.getString("amount") + " " + listPrice.getString("currencyCode");
                                         description = volumeInfo.getString("description");
                                         buy = saleInfo.getString("buyLink");
-                                        categories = volumeInfo.getJSONArray("categories").getString(0);
+                                        genre = volumeInfo.getJSONArray("categories").getString(0);
 
                                         // Check for the ISBN_13
                                         JSONArray isbns = volumeInfo.getJSONArray("industryIdentifiers");
@@ -198,7 +194,7 @@ public class SearchActivity extends AppCompatActivity {
                                     String previewLink = volumeInfo.getString("previewLink");
                                     String url = volumeInfo.getString("infoLink");
 
-                                    Book book = new Book(isbn, title, description, pageCount, thumbnail, author, category, 0);
+                                    Book book = new Book(isbn, title, description, pageCount, thumbnail, author, category, 0, genre, previewLink);
                                     mBooks.add(book);
 //                                    library = getLibrary();
 
