@@ -24,11 +24,10 @@ public class TabAdapter extends FragmentStateAdapter {
     int totalTabs;
     Bundle extras;
 
-    public TabAdapter(Context context, FragmentActivity fa, int totalTabs, Bundle Extras) {
+    public TabAdapter(Context context, FragmentActivity fa, int totalTabs, Bundle extras) {
         super(fa);
         mContext = context;
         this.totalTabs = totalTabs;
-        this.book = book;
         this.extras = extras;
     }
 
@@ -37,6 +36,7 @@ public class TabAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
+                System.out.println(extras.toString());
                 return new BookDetailsFragment().newInstance(extras);
             case 1:
                 return new BookProgressFragment().newInstance(extras);

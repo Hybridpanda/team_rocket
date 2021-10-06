@@ -7,23 +7,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.novulis_dev_app_v01.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link BookDetailsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class BookDetailsFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private TextView descriptionTv;
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
+    private String description;
     private String mParam2;
 
     public BookDetailsFragment() {
@@ -40,15 +34,20 @@ public class BookDetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            description = getArguments().getString("book_desc");
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_book_details, container, false);
+
+        descriptionTv = view.findViewById(R.id.bookDescription);
+
+//        this.onCreate(getArguments());
+        System.out.println("Description: " + description);
+        descriptionTv.setText(description);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_book_details, container, false);
+        return view;
     }
 }

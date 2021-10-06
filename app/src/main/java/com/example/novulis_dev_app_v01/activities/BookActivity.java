@@ -26,6 +26,9 @@ public class BookActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager2 viewPager;
+
+
+
     Book book;
 
     private OnAboutDataReceivedListener mAboutDataListener;
@@ -109,7 +112,7 @@ public class BookActivity extends AppCompatActivity {
             }
         });
 
-        collapsingToolbarLayout.setTitle(title);
+        //collapsingToolbarLayout.setTitle(title);
 
         RequestOptions requestOptions = new RequestOptions().centerCrop().placeholder(R.drawable.loading_shape).error(R.drawable.loading_shape);
 

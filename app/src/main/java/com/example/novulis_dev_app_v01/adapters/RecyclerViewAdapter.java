@@ -72,7 +72,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Book book = mData.get(i);
         holder.tvTitle.setText(book.getTitle());
         holder.tvAuthor.setText(book.getAuthor());
-        holder.libraryProgressBar.setProgress((int) Math.floor(100 * book.getCurrentPage()/book.getPageCount()));
+        holder.libraryProgressBar.setProgress(0);
+        if (book.getPageCount() != 0) {
+            holder.libraryProgressBar.setProgress((int) Math.floor(100 * book.getCurrentPage()/book.getPageCount()));
+        }
+
 //        holder.tvPrice.setText(book.getPrice());
 //        holder.tvCategory.setText(book.getCategories());
 

@@ -11,6 +11,7 @@
         android:id="@+id/appbar"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_height="300dp"
+        android:backgroundTint="@color/backgroundGrey"
         android:layout_width="match_parent">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -18,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:toolbarId="@+id/toolbar"
+            app:expandedTitleTextAppearance="@android:color/transparent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:title=""
 
@@ -27,18 +29,17 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_width="match_parent">
-
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
 
 
             </androidx.appcompat.widget.Toolbar>
+
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
-                android:padding="10dp"
-                >
+                android:orientation="horizontal"
+                android:padding="20dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -46,37 +47,37 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/aa_thumbnail"
                         android:layout_width="100dp"
                         android:layout_height="130dp"
                         android:background="@drawable/loading_shape"
-                        android:id="@+id/aa_thumbnail"
-                        android:scaleType="centerCrop"/>
+                        android:scaleType="centerCrop" />
 
                     <TextView
                         android:id="@+id/aa_info"
                         android:layout_width="70dp"
-                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
-                        android:text="info"
-                        android:padding="5dp"
-                        android:textSize="15sp"
-                        android:textColor="#fff"
-                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:layout_marginTop="5dp"/>
+                        android:padding="5dp"
+                        android:text="info"
+                        android:textColor="#fff"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/aa_preview"
                         android:layout_width="70dp"
-                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
-                        android:text="Preview"
-                        android:padding="5dp"
-                        android:textSize="15sp"
-                        android:textColor="#fff"
-                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:layout_marginTop="5dp"/>
-
+                        android:padding="5dp"
+                        android:text="Preview"
+                        android:textColor="#fff"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
@@ -85,52 +86,55 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_margin="8dp">
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
 
 
                     <TextView
+                        android:id="@+id/aa_book_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/aa_book_name"
                         android:text="Book Title"
                         android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/aa_categorie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="Category"
-                        android:textColor="@color/white"
-                        android:id="@+id/aa_categorie"/>
+                        android:textColor="@color/white" />
+
                     <TextView
+                        android:id="@+id/aa_author"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="author"
-                        android:textColor="@color/white"
-                        android:layout_marginTop="5dp"
-                        android:id="@+id/aa_author"/>
+                        android:textColor="@color/white" />
+
                     <TextView
+                        android:id="@+id/aa_publish_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="Publish Date"
-                        android:textColor="@color/white"
-                        android:layout_marginTop="5dp"
-                        android:id="@+id/aa_publish_date"/>
+                        android:textColor="@color/white" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Progress:"/>
+                        android:text="Progress:" />
 
                     <ProgressBar
-                        android:layout_width="match_parent"
                         android:id="@+id/bookProgressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:max="100"
-                        style="?android:attr/progressBarStyleHorizontal"/>
+                        android:max="100" />
 
                     <Button
                         android:id="@+id/setAsCurrentBookBtn"
@@ -143,14 +147,25 @@
 
 
             </LinearLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/bookTabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/tabGrey"
+                android:layout_gravity="bottom"
+                app:tabTextColor="@color/white"></com.google.android.material.tabs.TabLayout>
+
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/backgroundGrey"
-        android:padding="15dp"
+        android:background="@color/tabGrey"
+        android:fillViewport="true"
+
 
 
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
@@ -189,20 +204,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/bookTabLayout"
-                android:layout_width="380dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-            </com.google.android.material.tabs.TabLayout>
-
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/bookViewPager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_constraintTop_toBottomOf="@id/bookTabLayout"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bookTabLayout"
+                app:layout_constraintVertical_bias="0.0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
