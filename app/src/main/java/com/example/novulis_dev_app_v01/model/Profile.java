@@ -22,19 +22,91 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Profile {
+public class Profile implements Serializable {
 
     private ArrayList<Book> library;
     private ArrayList<Log> bookLog;
+    private String currentBook;
 
     private static  final  String BASE_URL="https://www.googleapis.com/books/v1/volumes?q=title:";
-    private RequestQueue mRequestQueue;
+    RequestQueue mRequestQueue;
 
     public Profile() {
         library = new ArrayList<>();
         bookLog = new ArrayList<>();
+
+    }
+
+    public void saveBookLog(Context mContext) {
+
+        try {
+            System.out.println("Saving book log");
+            File file = new File(mContext.getFilesDir()+"/bookLog.txt");
+            FileOutputStream f = new FileOutputStream(file);
+            ObjectOutputStream s = new ObjectOutputStream(f);
+            s.writeObject(bookLog);
+            System.out.println("Book log saved to file");
+            s.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            android.util.Log.e("TAG" , e.toString());
+        }
+
+    }
+
+    public void loadBookLog(Context mContext) {
+
+        try {
+            File file = new File(mContext.getFilesDir()+"/bookLog.txt");
+            FileInputStream f = new FileInputStream(file);
+            ObjectInputStream s = new ObjectInputStream(f);
+            bookLog = (ArrayList) s.readObject();
+            s.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void saveProfile(Context mContext) {
+
+        ArrayList<String> profileDetails = new ArrayList<>();
+
+        profileDetails.add(currentBook);
+
+        try {
+            System.out.println("Saving Profile");
+            File file = new File(mContext.getFilesDir()+"/profile.txt");
+            FileOutputStream f = new FileOutputStream(file);
+            ObjectOutputStream s = new ObjectOutputStream(f);
+            s.writeObject(profileDetails);
+            System.out.println("Profile saved to file");
+            s.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            android.util.Log.e("TAG" , e.toString());
+        }
+    }
+
+    public void loadProfile(Context mContext) {
+
+        ArrayList<String> profileDetails = new ArrayList<>();
+
+        try {
+            File file = new File(mContext.getFilesDir()+"/profile.txt");
+            FileInputStream f = new FileInputStream(file);
+            ObjectInputStream s = new ObjectInputStream(f);
+            profileDetails = (ArrayList) s.readObject();
+            s.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        currentBook = profileDetails.get(0);
+
     }
 
     public void loadLibrary(Context mContext) {
@@ -43,24 +115,12 @@ public class Profile {
             FileInputStream f = new FileInputStream(file);
             ObjectInputStream s = new ObjectInputStream(f);
             library = (ArrayList) s.readObject();
+
             System.out.println("" + library.toString());
             s.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-
-//        for (Book b : library) {
-//
-//            if (b.getCategory().equals("Currently Reading")) {
-//                currentBooks.add(b);
-//            } else if (b.getCategory().equals("Club Books")) {
-//                clubBooks.add(b);
-//            } else if (b.getCategory().equals("Read Again")) {
-//                readAgain.add(b);
-//            }
-//        }
-
     }
 
     public void createLibrary(String searchString, Context mContext) {
@@ -204,7 +264,9 @@ public class Profile {
                                 FileOutputStream f = new FileOutputStream(file);
                                 ObjectOutputStream s = new ObjectOutputStream(f);
                                 s.writeObject(library);
+                                setCurrentBook(library.get(0).getTitle());
                                 System.out.println("Library saved to file");
+                                saveProfile(mContext);
                                 s.close();
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -244,5 +306,26 @@ public class Profile {
 
     public void setBookLog(ArrayList<Log> bookLog) {
         this.bookLog = bookLog;
+    }
+
+    public String getCurrentBook() {
+        return currentBook;
+    }
+
+    public void setCurrentBook(String currentBook) {
+        this.currentBook = currentBook;
+    }
+
+    public void addLog(Log log) {
+        bookLog.add(log);
+    }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "library=" + library.toString() +
+                ", bookLog=" + bookLog.toString() +
+                ", currentBook='" + currentBook + '\'' +
+                '}';
     }
 }

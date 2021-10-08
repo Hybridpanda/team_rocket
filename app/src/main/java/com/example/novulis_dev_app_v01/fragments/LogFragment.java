@@ -1,64 +1,79 @@
 package com.example.novulis_dev_app_v01.fragments;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.novulis_dev_app_v01.R;
+import com.example.novulis_dev_app_v01.adapters.LogRecyclerViewAdapter;
+import com.example.novulis_dev_app_v01.adapters.RecyclerViewAdapter;
+import com.example.novulis_dev_app_v01.model.Log;
+import com.example.novulis_dev_app_v01.model.Profile;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link LogFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+
+
 public class LogFragment extends Fragment {
 
+    Profile profile;
+
     // Layout variables
+    Button newLogBtn;
+
+    // Pop-up variables
+    Spinner bookDropdown;
     Spinner logDropdown;
+    EditText logAmount;
+    EditText logNote;
+    Button cancelBtn;
+    Button saveBtn;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    // Recycler view for log display
+    RecyclerView logRecyclerView;
 
     public LogFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment LogFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static LogFragment newInstance(String param1, String param2) {
+    public static LogFragment newInstance() {
         LogFragment fragment = new LogFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public void openLogDialog(View view) {
+        final AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
+        View mView = getLayoutInflater().inflate(R.layout.dialog_log_input, null);
+
+        // Find elements by id
+
+        alert.setView(mView);
+        final AlertDialog alertDialog = alert.create();
+
+        // Set button listeners for the dialog
+
+        alertDialog.show();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
@@ -69,9 +84,80 @@ public class LogFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_log, container, false);
         logDropdown = v.findViewById(R.id.logDropdown);
 
-        String[] items = new String[] {"Chapters", "Pages", "Books"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, items);
-        logDropdown.setAdapter(adapter);
+        profile = new Profile();
+        profile.loadProfile(v.getContext());
+        profile.loadLibrary(v.getContext());
+        profile.loadBookLog(v.getContext());
+
+        logRecyclerView = v.findViewById(R.id.logRecyclerView);
+
+        ArrayList<Log> bookLog = profile.getBookLog();
+        Collections.reverse(bookLog);
+        logRecyclerView.setAdapter(new LogRecyclerViewAdapter(bookLog, v.getContext()));
+        logRecyclerView.setHasFixedSize(true);
+        logRecyclerView.setLayoutManager(new LinearLayoutManager(v.getContext(), RecyclerView.VERTICAL, false));
+
+        newLogBtn = v.findViewById(R.id.newLogBtn);
+        newLogBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
+                View mView = getLayoutInflater().inflate(R.layout.dialog_log_input, null);
+
+                // Find elements by id
+                bookDropdown = mView.findViewById(R.id.bookDropdown);
+                logDropdown = mView.findViewById(R.id.logDropdown);
+                logAmount = mView.findViewById(R.id.logAmountEt);
+                logNote = mView.findViewById(R.id.logNote);
+
+                cancelBtn = mView.findViewById(R.id.cancelBtn);
+                saveBtn = mView.findViewById(R.id.saveBtn);
+
+                String[] items = new String[] {"Chapters", "Pages", "Books"};
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, items);
+                logDropdown.setAdapter(adapter);
+
+                alert.setView(mView);
+                final AlertDialog alertDialog = alert.create();
+
+                alertDialog.setCanceledOnTouchOutside(true);
+
+                // Set button listeners for the dialog
+
+                cancelBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        alertDialog.dismiss();
+                    }
+                });
+
+                saveBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log log = new Log(Calendar.getInstance().getTime(),
+                                profile.getCurrentBook(),
+                                Integer.parseInt(logAmount.getText().toString()),
+                                logNote.getText().toString());
+
+                        System.out.println("Log note: " + logNote.getText().toString());
+                        profile.addLog(log);
+                        profile.saveProfile(v.getContext());
+                        profile.saveBookLog(v.getContext());
+
+//                        Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.logFragment);
+//                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+//                        fragmentTransaction.detach(currentFragment);
+//                        fragmentTransaction.attach(currentFragment);
+//                        fragmentTransaction.commit();
+
+                        alertDialog.dismiss();
+                    }
+
+                });
+
+                alertDialog.show();
+            }
+        });
 
         return v;
     }

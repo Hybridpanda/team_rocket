@@ -21,7 +21,6 @@ public class NavigationActivity extends AppCompatActivity {
     // Nav bar variables
     BottomNavigationView bottomNavigationView;
 
-    Profile profile = new Profile();
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -35,8 +34,6 @@ public class NavigationActivity extends AppCompatActivity {
         // Load the fragments and set listener for nav bar
         loadFragments(new HomeFragment());
 
-        // Create the library file with a set list of books
-        profile.createLibrary("fantasy", mContext);
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnItemSelectedListener(item -> {

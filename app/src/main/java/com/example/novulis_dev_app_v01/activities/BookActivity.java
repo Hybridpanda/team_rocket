@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.novulis_dev_app_v01.R;
 import com.example.novulis_dev_app_v01.adapters.TabAdapter;
 import com.example.novulis_dev_app_v01.model.Book;
+import com.example.novulis_dev_app_v01.model.Profile;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -26,6 +29,7 @@ public class BookActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager2 viewPager;
+    Profile profile = new Profile();
 
 
 
@@ -71,6 +75,7 @@ public class BookActivity extends AppCompatActivity {
         TextView tvCatag = findViewById(R.id.aa_categorie);
         TextView tvPublishDate = findViewById(R.id.aa_publish_date);
         TextView tvPreview = findViewById(R.id.aa_preview);
+        Button setCurrentBookBtn = findViewById(R.id.setAsCurrentBookBtn);
 
         ImageView ivThumbnail = findViewById(R.id.aa_thumbnail);
 
@@ -102,6 +107,16 @@ public class BookActivity extends AppCompatActivity {
             }
         });
 
+        String finalTitle = title;
+        setCurrentBookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                profile.setCurrentBook(finalTitle);
+                profile.saveProfile(getApplicationContext());
+                Toast.makeText(getApplicationContext(), finalTitle + " set as current book", Toast.LENGTH_LONG).show();
+            }
+        });
+
         //collapsingToolbarLayout.setTitle(title);
 
         RequestOptions requestOptions = new RequestOptions().centerCrop().placeholder(R.drawable.loading_shape).error(R.drawable.loading_shape);
@@ -112,11 +127,6 @@ public class BookActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.bookTabLayout);
         viewPager = findViewById(R.id.bookViewPager);
-
-//        tabLayout.addTab(tabLayout.newTab().setText("Details"));
-//        tabLayout.addTab(tabLayout.newTab().setText("Progress"));
-//        tabLayout.addTab(tabLayout.newTab().setText("Similar"));
-//        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         viewPager.setAdapter(new TabAdapter(this, this, 3, extras));
         new TabLayoutMediator(tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
