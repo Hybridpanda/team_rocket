@@ -4,10 +4,10 @@
         <shape android:shape="rectangle">
             <solid android:color="@color/trinket_lightGrey"/>
             <corners android:radius="25dp"/>
-            <size android:width="100dp" android:height="100dp"/>
+            <size android:width="400dp" android:height="200dp"/>
             <padding android:left="0dp"
                 android:right="0dp"
-                android:top="60dp"
+                android:top="150dp"
                 android:bottom="0dp"/>
         </shape>
     </item>
@@ -15,7 +15,7 @@
         <shape android:shape="rectangle">
             <solid android:color="@color/trinket_darkGrey"/>
             <corners android:bottomLeftRadius="25dp" android:bottomRightRadius="25dp"/>
-            <size android:width="100dp" android:height="10dp"/>
+            <size android:width="100dp" android:height="100dp"/>
             <padding android:left="10dp"
                 android:right="10dp"
                 android:top="10dp"
