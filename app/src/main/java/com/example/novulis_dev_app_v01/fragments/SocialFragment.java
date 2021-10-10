@@ -68,7 +68,7 @@ public class SocialFragment extends Fragment {
         Button btn = v.findViewById(R.id.button5);
 
         btn.setOnClickListener(view -> {
-        Intent i = new Intent(this.getContext(), ClubsActivity.class);
+            Intent i = new Intent(this.getContext(), ClubsActivity.class);
         startActivity(i);
         });
 
