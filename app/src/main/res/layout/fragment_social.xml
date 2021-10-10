@@ -41,14 +41,16 @@
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:background="@drawable/rounded_button"
-        android:text="@string/clubs"
+        android:checkable="false"
         android:gravity="center_horizontal"
+        android:text="@string/clubs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.499"
+        tools:ignore="DuplicateClickableBoundsCheck" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -68,14 +70,15 @@
         android:id="@+id/imageView9"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/ic_club"
+        android:clickable="false"
+        android:contentDescription="@string/todo"
+        android:elevation="2dp"
         android:padding="30dp"
-        app:tint="@color/white"
+        android:src="@drawable/ic_club"
         app:layout_constraintBottom_toBottomOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="@+id/button5"
         app:layout_constraintStart_toStartOf="@+id/button5"
         app:layout_constraintTop_toTopOf="@+id/button5"
-        android:elevation="2dp"
-        android:contentDescription="@string/todo" />
+        app:tint="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
