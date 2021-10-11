@@ -19,7 +19,6 @@ import android.widget.ImageView;
 import com.example.novulis_dev_app_v01.R;
 
 public class ClubsActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +27,6 @@ public class ClubsActivity extends AppCompatActivity {
         Button rocketBtn = findViewById(R.id.teamRocketBtn);
         rocketBtn.setOnClickListener(view -> {
             Intent i = new Intent(this, BookClubActivity.class);
-            Log.d("info", String.valueOf(i));
             startActivity(i);
         });
     }

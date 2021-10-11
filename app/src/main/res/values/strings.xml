@@ -48,4 +48,7 @@
     <string name="plus">segments of plus</string>
     <string name="planet">planets</string>
     <string name="planet_names">names of groups</string>
+    <string name="star_background">star background</string>
+    <string name="sun">sun</string>
+    <string name="wet_planet">wet planet</string>
 </resources>
