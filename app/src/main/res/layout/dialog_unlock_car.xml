@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You Unlocked a new ship!"
+        android:padding="15dp"
+        android:layout_margin="15dp"
+        android:textSize="22sp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Flying Ford Anglia"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="@color/highlightGrey"/>
+
+    <ImageView
+        android:id="@+id/flyingCarIv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/flying_car" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="'Ron, I should tell you. Most muggles aren't accustomed to seeing a flying car.' - Harry \n\n
+
+    Imagine a wizard buying a rusty old car and telling his wife all he wanted to do was take it apart to see how it worked, while really, he was enchanting it to make it fly."
+        android:textColor="@color/highlightGrey"
+        android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/closeBtn"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Close"
+        android:layout_margin="15dp"
+        android:layout_gravity="center"/>
+
+
+</LinearLayout>

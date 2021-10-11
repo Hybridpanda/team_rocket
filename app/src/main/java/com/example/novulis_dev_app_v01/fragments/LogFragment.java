@@ -3,6 +3,9 @@ package com.example.novulis_dev_app_v01.fragments;
 import android.app.AlertDialog;
 import android.os.Bundle;
 
+import androidx.dynamicanimation.animation.DynamicAnimation;
+import androidx.dynamicanimation.animation.SpringAnimation;
+import androidx.dynamicanimation.animation.SpringForce;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,9 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.example.novulis_dev_app_v01.R;
@@ -39,8 +46,12 @@ public class LogFragment extends Fragment {
     Spinner logDropdown;
     EditText logAmount;
     EditText logNote;
+    EditText durationHours;
+    EditText durationMinutes;
     Button cancelBtn;
     Button saveBtn;
+    Button closeBtn;
+    ImageView flyingCarIv;
 
     // Recycler view for log display
     RecyclerView logRecyclerView;
@@ -101,28 +112,60 @@ public class LogFragment extends Fragment {
         newLogBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
+                final AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext(), R.style.CustomAlertDialog);
                 View mView = getLayoutInflater().inflate(R.layout.dialog_log_input, null);
+
+                final AlertDialog.Builder unlockAlert = new AlertDialog.Builder(view.getContext(), R.style.CustomAlertDialog);
+                View unlockView = getLayoutInflater().inflate(R.layout.dialog_unlock_car, null);
+
+                // Find the elements for the unlock pop up
+                closeBtn = unlockView.findViewById(R.id.closeBtn);
+                flyingCarIv = unlockView.findViewById(R.id.flyingCarIv);
 
                 // Find elements by id
                 bookDropdown = mView.findViewById(R.id.bookDropdown);
                 logDropdown = mView.findViewById(R.id.logDropdown);
                 logAmount = mView.findViewById(R.id.logAmountEt);
                 logNote = mView.findViewById(R.id.logNote);
-
+                durationHours = mView.findViewById(R.id.durationHoursEt);
+                durationMinutes = mView.findViewById(R.id.durationMinutesEt);
+                int durationTotalMinutes = 60 * Integer.parseInt(durationHours.getText().toString()) + Integer.parseInt(durationMinutes.getText().toString());
                 cancelBtn = mView.findViewById(R.id.cancelBtn);
                 saveBtn = mView.findViewById(R.id.saveBtn);
 
+                // Set up the drop down selectors
                 String[] items = new String[] {"Chapters", "Pages", "Books"};
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, items);
                 logDropdown.setAdapter(adapter);
 
+                String[] bookTitles = profile.getBookTitles();
+                ArrayAdapter<String> titleAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, bookTitles);
+                bookDropdown.setAdapter(titleAdapter);
+
+                // Create the animation for the unlock
+//                RotateAnimation forwardAnimation = new RotateAnimation(0, 30f,
+//                        Animation.RELATIVE_TO_SELF, 0.5f,
+//                        Animation.RELATIVE_TO_SELF, 0.5f);
+//
+//                RotateAnimation backwardAnimation = new RotateAnimation(30f, 0f,
+//                        Animation.RELATIVE_TO_SELF, 0.5f,
+//                        Animation.RELATIVE_TO_SELF, 0.5f);
+//
+//                forwardAnimation.setInterpolator(new LinearInterpolator());
+//                forwardAnimation.setDuration(2000);
+//                forwardAnimation.setRepeatCount(Animation.INFINITE);
+//
+//                unlockView.findViewById(R.id.flyingCarIv).startAnimation(forwardAnimation);
+
+
+                // Create the log input pop up
                 alert.setView(mView);
                 final AlertDialog alertDialog = alert.create();
-
                 alertDialog.setCanceledOnTouchOutside(true);
 
                 // Set button listeners for the dialog
+
+                final AlertDialog[] unlockDialog = new AlertDialog[1];
 
                 cancelBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -135,14 +178,16 @@ public class LogFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         Log log = new Log(Calendar.getInstance().getTime(),
-                                profile.getCurrentBook(),
+                                bookDropdown.getSelectedItem().toString(),
                                 Integer.parseInt(logAmount.getText().toString()),
-                                logNote.getText().toString());
+                                logNote.getText().toString(),
+                                durationTotalMinutes);
 
                         System.out.println("Log note: " + logNote.getText().toString());
                         profile.addLog(log);
                         profile.saveProfile(v.getContext());
                         profile.saveBookLog(v.getContext());
+                        profile.saveLibrary(v.getContext());
 
 //                        Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.logFragment);
 //                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
@@ -151,11 +196,33 @@ public class LogFragment extends Fragment {
 //                        fragmentTransaction.commit();
 
                         alertDialog.dismiss();
+
+                        // Create the unlock pop up for the Flying Car
+                        unlockAlert.setView(unlockView);
+                        unlockDialog[0] = unlockAlert.create();
+                        unlockDialog[0].show();
+                        final SpringAnimation imageSpring = new SpringAnimation(flyingCarIv, DynamicAnimation.ROTATION_Y, 0);
+                        imageSpring.setStartValue(1000f);
+                        imageSpring.setStartVelocity(100f);
+                        SpringForce springForce = new SpringForce();
+                        springForce.setDampingRatio(SpringForce.DAMPING_RATIO_HIGH_BOUNCY);
+                        springForce.setFinalPosition(0f);
+                        springForce.setStiffness(SpringForce.STIFFNESS_LOW);
+                        imageSpring.setSpring(springForce);
+                        imageSpring.start();
+
                     }
 
                 });
 
                 alertDialog.show();
+
+                closeBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        unlockDialog[0].dismiss();
+                    }
+                });
             }
         });
 

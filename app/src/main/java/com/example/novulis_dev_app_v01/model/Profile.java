@@ -91,6 +91,21 @@ public class Profile implements Serializable {
         }
     }
 
+    public void saveLibrary(Context mContext) {
+        try {
+            System.out.println("Saving library");
+            File file = new File(mContext.getFilesDir()+"/library.txt");
+            FileOutputStream f = new FileOutputStream(file);
+            ObjectOutputStream s = new ObjectOutputStream(f);
+            s.writeObject(library);
+            System.out.println("Library saved to file");
+            s.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            android.util.Log.e("TAG" , e.toString());
+        }
+    }
+
     public void loadProfile(Context mContext) {
 
         ArrayList<String> profileDetails = new ArrayList<>();
@@ -296,6 +311,14 @@ public class Profile implements Serializable {
         return library;
     }
 
+    public String[] getBookTitles() {
+        String[] bookTitles = new String[library.size()];
+        for (int i = 0; i < library.size(); i++) {
+            bookTitles[i] = library.get(i).getTitle();
+        }
+        return bookTitles;
+    }
+
     public void setLibrary(ArrayList<Book> library) {
         this.library = library;
     }
@@ -317,7 +340,24 @@ public class Profile implements Serializable {
     }
 
     public void addLog(Log log) {
-        bookLog.add(log);
+        for (Book book : library) {
+            if (book.getTitle().equals(log.getBookTitle())) {
+                int currentPage = book.getCurrentPage();
+                int pageCount = book.getPageCount();
+                int newPage = currentPage + log.getPages();
+                System.out.println("Current Page: " + currentPage + ", Page Count: " + pageCount + "New Page: " + newPage);
+
+                if (newPage < book.getPageCount()) {
+                    book.setCurrentPage(newPage);
+                } else if (newPage >= pageCount) {
+                    book.setCurrentPage(pageCount);
+                    book.setCategory("Read Again");
+                }
+                bookLog.add(log);
+                break;
+            }
+        }
+
     }
 
     @Override

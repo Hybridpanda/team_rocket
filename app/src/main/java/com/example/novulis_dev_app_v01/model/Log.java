@@ -9,12 +9,14 @@ public class Log implements Serializable {
     private String bookTitle;
     private int pages;
     private String note;
+    private int duration;
 
-    public Log(Date logDate, String bookTitle, int pages, String note) {
+    public Log(Date logDate, String bookTitle, int pages, String note, int duration) {
         this.logDate = logDate;
         this.bookTitle = bookTitle;
         this.pages = pages;
         this.note = note;
+        this.duration = duration;
     }
 
     public String getNote() {
@@ -52,10 +54,19 @@ public class Log implements Serializable {
     @Override
     public String toString() {
         return "Log{" +
-                "logDate=" + logDate.toString() +
+                "logDate=" + logDate +
                 ", bookTitle='" + bookTitle + '\'' +
                 ", pages=" + pages +
                 ", note='" + note + '\'' +
+                ", duration=" + duration +
                 '}';
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 }

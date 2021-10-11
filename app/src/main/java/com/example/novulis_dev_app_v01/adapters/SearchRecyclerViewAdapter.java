@@ -23,6 +23,7 @@ import com.example.novulis_dev_app_v01.R;
 import com.example.novulis_dev_app_v01.activities.BookActivity;
 import com.example.novulis_dev_app_v01.activities.SearchActivity;
 import com.example.novulis_dev_app_v01.model.Book;
+import com.example.novulis_dev_app_v01.model.Profile;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -40,12 +41,16 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
     private List<Book> searchResults;
     private Context mContext;
     private RequestOptions options;
+    private Profile profile;
 
     public SearchRecyclerViewAdapter(ArrayList<Book> library, ArrayList<Book> searchResults, Context mContext) {
         this.searchResults = searchResults;
         this.mContext = mContext;
         this.library = library;
         options = new RequestOptions().centerCrop().placeholder(R.drawable.loading_shape).error(R.drawable.loading_shape);
+        profile = new Profile();
+        profile.loadProfile(mContext);
+        profile.loadLibrary(mContext);
     }
 
     @NonNull
@@ -100,18 +105,9 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
                     ArrayList<Book> tempLibrary = library;
                     searchResults.get(pos).setCategory("Currently Reading");
                     tempLibrary.add(searchResults.get(pos));
-                    try {
-                        System.out.println("Saving library");
-                        File file = new File(mContext.getFilesDir()+"/library.txt");
-                        FileOutputStream f = new FileOutputStream(file);
-                        ObjectOutputStream s = new ObjectOutputStream(f);
-                        s.writeObject(tempLibrary);
-                        System.out.println("Library saved to file");
-                        s.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        Log.e("TAG" , e.toString());
-                    }
+
+                    profile.setLibrary(tempLibrary);
+                    profile.saveLibrary(mContext);
                 }
             }
         });
