@@ -37,7 +37,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/clubsBtn"
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:background="@drawable/rounded_button"
@@ -71,10 +71,10 @@
         android:src="@drawable/ic_club"
         android:padding="30dp"
         app:tint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="@+id/button5"
-        app:layout_constraintStart_toStartOf="@+id/button5"
-        app:layout_constraintTop_toTopOf="@+id/button5"
+        app:layout_constraintBottom_toBottomOf="@+id/clubsBtn"
+        app:layout_constraintEnd_toEndOf="@+id/clubsBtn"
+        app:layout_constraintStart_toStartOf="@+id/clubsBtn"
+        app:layout_constraintTop_toTopOf="@+id/clubsBtn"
         android:elevation="2dp"
         android:contentDescription="@string/todo" />
 
