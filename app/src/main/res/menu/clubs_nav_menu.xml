@@ -7,9 +7,9 @@
         android:title="Group Progress"
         />
     <item
-        android:id="@+id/groupLogFragment"
-        android:icon="@drawable/log"
-        android:title="Log"
+        android:id="@+id/bookClubFragment"
+        android:icon="@drawable/ic_club"
+        android:title="Book Club"
         />
     <item
         android:id="@+id/chatFragment"

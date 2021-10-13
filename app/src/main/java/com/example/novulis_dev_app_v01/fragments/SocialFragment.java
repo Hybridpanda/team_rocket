@@ -1,8 +1,10 @@
 package com.example.novulis_dev_app_v01.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,13 +14,26 @@ import android.widget.Button;
 
 import com.example.novulis_dev_app_v01.R;
 import com.example.novulis_dev_app_v01.activities.BookClubsActivity;
+import com.example.novulis_dev_app_v01.callbacks.FragmentCallback;
 
 public class SocialFragment extends Fragment {
 
+    private FragmentCallback callback;
     private Button clubsBtn;
 
     public SocialFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof FragmentCallback) {
+            callback = (FragmentCallback) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement FragmentCallback");
+        }
     }
 
     public static SocialFragment newInstance(String param1, String param2) {
@@ -47,8 +62,8 @@ public class SocialFragment extends Fragment {
         clubsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), BookClubsActivity.class);
-                startActivity(intent);
+                Fragment fragment = new ClubSelectionFragment();
+                callback.onButtonClicked(fragment);
             }
         });
 

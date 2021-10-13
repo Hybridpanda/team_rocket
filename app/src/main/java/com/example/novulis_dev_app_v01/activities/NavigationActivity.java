@@ -3,11 +3,17 @@ package com.example.novulis_dev_app_v01.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentContainerView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
 import com.example.novulis_dev_app_v01.R;
+import com.example.novulis_dev_app_v01.callbacks.FragmentCallback;
+import com.example.novulis_dev_app_v01.fragments.ClubSelectionFragment;
 import com.example.novulis_dev_app_v01.fragments.HomeFragment;
 import com.example.novulis_dev_app_v01.fragments.LibraryFragment;
 import com.example.novulis_dev_app_v01.fragments.LogFragment;
@@ -16,7 +22,7 @@ import com.example.novulis_dev_app_v01.fragments.SocialFragment;
 import com.example.novulis_dev_app_v01.model.Profile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class NavigationActivity extends AppCompatActivity {
+public class NavigationActivity extends AppCompatActivity implements FragmentCallback {
 
     // Nav bar variables
     BottomNavigationView bottomNavigationView;
@@ -33,7 +39,6 @@ public class NavigationActivity extends AppCompatActivity {
 
         // Load the fragments and set listener for nav bar
         loadFragments(new HomeFragment());
-
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -75,5 +80,11 @@ public class NavigationActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public void onButtonClicked(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainerView, fragment)
+                .commit();
+    }
 }
 

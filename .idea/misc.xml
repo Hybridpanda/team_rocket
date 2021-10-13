@@ -9,17 +9,23 @@
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/drawable/popup_background.xml" value="0.4203125" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/drawable/rounded_edit_text.xml" value="0.4203125" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/activity_book.xml" value="0.4" />
+        <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/activity_book_club.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/activity_book_clubs.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/activity_clubs.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/activity_in_progress.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/activity_main.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/activity_navigation.xml" value="0.30885416666666665" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/activity_search.xml" value="0.31666666666666665" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/book_raw_item.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/dialog_log_input.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/dialog_unlock_car.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_book_club.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_book_details.xml" value="0.4" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_book_progress.xml" value="0.264" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_book_similar.xml" value="0.536" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_chat.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_club_selection.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_group_progress.xml" value="0.39010416666666664" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_home.xml" value="0.4" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_library.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_log.xml" value="0.264" />
