@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         profile.createLibrary("fantasy", getApplicationContext());
 
         Button loginBtn = (Button)findViewById(R.id.loginBtn);
+
         loginBtn.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, NavigationActivity.class);
             startActivity(intent);

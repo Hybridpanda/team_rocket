@@ -41,4 +41,14 @@
     <string name="todo">TODO</string>
     <string name="clubs">Clubs</string>
     <string name="forum">Forum</string>
+    <string name="blue_circle">blue circle</string>
+    <string name="pink_circle">pink circle</string>
+    <string name="grey_background">grey background</string>
+    <string name="inner_background">inner background</string>
+    <string name="plus">segments of plus</string>
+    <string name="planet">planets</string>
+    <string name="planet_names">names of groups</string>
+    <string name="star_background">star background</string>
+    <string name="sun">sun</string>
+    <string name="wet_planet">wet planet</string>
 </resources>
