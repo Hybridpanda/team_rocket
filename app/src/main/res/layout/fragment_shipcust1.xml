@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundGrey">
+
+    <ImageView
+        android:id="@+id/menubox"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/shipcust_menubody" />
+
+    <HorizontalScrollView
+        android:layout_width="412dp"
+        android:layout_height="209dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/menubox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/menubox"
+        app:layout_constraintTop_toTopOf="@+id/menubox"
+        app:layout_constraintVertical_bias="0.607">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/bodyItem1"
+                    android:layout_width="107dp"
+                    android:layout_height="197dp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/shipcust_bodyitem" />
+
+                <ImageView
+                    android:id="@+id/ship1_img"
+                    android:layout_width="72dp"
+                    android:layout_height="74dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/bodyItem1"
+                    app:layout_constraintEnd_toEndOf="@+id/bodyItem1"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/bodyItem1"
+                    app:layout_constraintTop_toTopOf="@+id/bodyItem1"
+                    app:layout_constraintVertical_bias="0.3"
+                    app:srcCompat="@drawable/ship1" />
+
+                <TextView
+                    android:id="@+id/ship1_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Default"
+                    android:textAlignment="center"
+                    android:textColor="@color/shipcust_pinkSelected"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/bodyItem1"
+                    app:layout_constraintStart_toStartOf="@+id/bodyItem1"
+                    app:layout_constraintTop_toBottomOf="@+id/ship1_img" />
+
+                <ImageView
+                    android:id="@+id/bodyItem2"
+                    android:layout_width="107dp"
+                    android:layout_height="197dp"
+                    android:layout_marginStart="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/bodyItem1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/shipcust_bodyitem" />
+
+                <ImageView
+                    android:id="@+id/ship2_img"
+                    android:layout_width="69dp"
+                    android:layout_height="75dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/bodyItem2"
+                    app:layout_constraintEnd_toEndOf="@+id/bodyItem2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/bodyItem2"
+                    app:layout_constraintTop_toTopOf="@+id/bodyItem2"
+                    app:layout_constraintVertical_bias="0.3"
+                    app:srcCompat="@drawable/ship2" />
+
+                <TextView
+                    android:id="@+id/ship2_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Galaga"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/bodyItem2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/bodyItem2"
+                    app:layout_constraintTop_toBottomOf="@+id/ship2_img" />
+
+                <ImageView
+                    android:id="@+id/bodyItem3"
+                    android:layout_width="107dp"
+                    android:layout_height="197dp"
+                    android:layout_marginStart="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/bodyItem2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/shipcust_bodyitem" />
+
+                <ImageView
+                    android:id="@+id/ship3_img"
+                    android:layout_width="69dp"
+                    android:layout_height="75dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/bodyItem3"
+                    app:layout_constraintEnd_toEndOf="@+id/bodyItem3"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/bodyItem3"
+                    app:layout_constraintTop_toTopOf="@+id/bodyItem3"
+                    app:layout_constraintVertical_bias="0.3"
+                    app:srcCompat="@drawable/ship3" />
+
+                <TextView
+                    android:id="@+id/ship3_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="UFO"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/bodyItem3"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/bodyItem3"
+                    app:layout_constraintTop_toBottomOf="@+id/ship3_img" />
+
+                <ImageView
+                    android:id="@+id/bodyItem4"
+                    android:layout_width="107dp"
+                    android:layout_height="197dp"
+                    android:layout_marginStart="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/bodyItem3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/shipcust_bodyitem" />
+
+                <ImageView
+                    android:id="@+id/ship_car_img"
+                    android:layout_width="69dp"
+                    android:layout_height="75dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/bodyItem4"
+                    app:layout_constraintEnd_toEndOf="@+id/bodyItem4"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/bodyItem4"
+                    app:layout_constraintTop_toTopOf="@+id/bodyItem4"
+                    app:layout_constraintVertical_bias="0.3"
+                    app:srcCompat="@drawable/ship_car" />
+
+                <TextView
+                    android:id="@+id/ship_car_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Flying Car"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/bodyItem4"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/bodyItem4"
+                    app:layout_constraintTop_toBottomOf="@+id/ship_car_img" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

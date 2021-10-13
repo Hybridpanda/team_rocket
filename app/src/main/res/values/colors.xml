@@ -20,4 +20,10 @@
     <color name="trinket_lightGrey">#585A66</color>
     <color name="trinket_darkGrey">#272836</color>
 
+    # Ship customisation menu / windows Palette
+    <color name="shipcust_main">#2E294E</color>
+    <color name="shipcust_tab">#9055A2</color>
+    <color name="shipcust_pinkSelected">#E8C1C5</color>
+    <color name="shipcust_bodyitem">#181D31</color>
+
 </resources>

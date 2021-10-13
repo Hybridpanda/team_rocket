@@ -8,6 +8,10 @@
         <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/drawable/nav_bar_selector.xml" value="0.3828125" />
         <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/drawable/rounded_button.xml" value="0.3828125" />
         <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/drawable/rounded_edit_text.xml" value="0.3828125" />
+        <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/drawable/shipcust_bodyitem.xml" value="0.3828125" />
+        <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/drawable/shipcust_menu_activetab.xml" value="0.3828125" />
+        <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/drawable/shipcust_menu_mainbox.xml" value="0.3828125" />
+        <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/drawable/shipcust_menu_tab.xml" value="0.3828125" />
         <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/drawable/trinket_button.xml" value="0.3828125" />
         <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/drawable/trinket_philstone.xml" value="0.3828125" />
         <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/layout/activity_book.xml" value="0.36666666666666664" />
@@ -18,6 +22,12 @@
         <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/layout/fragment_library.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/layout/fragment_log.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/layout/fragment_profile.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/layout/fragment_shipcust1.xml" value="0.33" />
+        <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/layout/fragment_shipcust2.xml" value="0.3423913043478261" />
+        <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/layout/fragment_shipcust3.xml" value="0.3423913043478261" />
+        <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/layout/fragment_shipcust4.xml" value="0.3423913043478261" />
+        <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/layout/fragment_shipcust5.xml" value="0.3423913043478261" />
+        <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/layout/fragment_shipcustomise1.xml" value="0.33" />
         <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/layout/fragment_social.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/layout/fragment_trinkets.xml" value="0.25" />
         <entry key="..\:/Users/ivn55/Desktop/team_rocket/app/src/main/res/layout/search_result_raw_item.xml" value="0.36666666666666664" />
