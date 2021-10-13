@@ -16,8 +16,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".activities.TrinketsActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.InProgressActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".activities.BookClubsActivity"
             android:exported="true" />

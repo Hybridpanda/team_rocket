@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView44"
+        android:id="@+id/trinketTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Flying Ford Anglia"
@@ -32,13 +32,13 @@
         android:textColor="@color/highlightGrey"/>
 
     <ImageView
-        android:id="@+id/flyingCarIv"
+        android:id="@+id/trinketIv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/flying_car" />
 
     <TextView
-        android:id="@+id/textView43"
+        android:id="@+id/trinketText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="20dp"

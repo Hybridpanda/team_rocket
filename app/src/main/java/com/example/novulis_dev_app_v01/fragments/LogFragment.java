@@ -120,7 +120,7 @@ public class LogFragment extends Fragment {
 
                 // Find the elements for the unlock pop up
                 closeBtn = unlockView.findViewById(R.id.closeBtn);
-                flyingCarIv = unlockView.findViewById(R.id.flyingCarIv);
+                flyingCarIv = unlockView.findViewById(R.id.trinketIv);
 
                 // Find elements by id
                 bookDropdown = mView.findViewById(R.id.bookDropdown);
@@ -188,12 +188,6 @@ public class LogFragment extends Fragment {
                         profile.saveProfile(v.getContext());
                         profile.saveBookLog(v.getContext());
                         profile.saveLibrary(v.getContext());
-
-//                        Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.logFragment);
-//                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-//                        fragmentTransaction.detach(currentFragment);
-//                        fragmentTransaction.attach(currentFragment);
-//                        fragmentTransaction.commit();
 
                         alertDialog.dismiss();
 

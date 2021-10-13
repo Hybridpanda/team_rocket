@@ -16,4 +16,6 @@
     <color name="grey">#383849</color>
     <color name="purpleBtn">#8E3FAA</color>
     <color name="selected">#E1914B</color>
+    <color name="trinket_darkGrey">#272836</color>
+    <color name="trinket_lightGrey">#585A66</color>
 </resources>
