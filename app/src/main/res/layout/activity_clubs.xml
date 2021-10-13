@@ -176,10 +176,10 @@
 
     <Button
         android:id="@+id/teamRocketBtn"
-        android:layout_width="403dp"
-        android:layout_height="124dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="329dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="24dp"
         android:contentDescription="@string/grey_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view"
