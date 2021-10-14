@@ -58,4 +58,25 @@
 
         </LinearLayout>
     </HorizontalScrollView>
+
+    <ImageView
+        android:id="@+id/shipPreview"
+        android:layout_width="wrap_content"
+        android:layout_height="430dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shipcust_default_paint_b1" />
+
+    <ImageView
+        android:id="@+id/trailPreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/menubox"
+        app:layout_constraintEnd_toEndOf="@+id/shipPreview"
+        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintStart_toStartOf="@+id/shipPreview"
+        app:layout_constraintTop_toTopOf="@+id/shipPreview"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/shipcust_default_trial_a1" />
 </androidx.constraintlayout.widget.ConstraintLayout>
