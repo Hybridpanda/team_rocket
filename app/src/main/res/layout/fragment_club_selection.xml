@@ -68,9 +68,9 @@
 
     <ImageView
         android:id="@+id/imageView16"
-        android:layout_width="306dp"
-        android:layout_height="123dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="305dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:clickable="true"
         android:contentDescription="@string/inner_background"
@@ -179,11 +179,14 @@
         android:id="@+id/imageView26"
         android:layout_width="261dp"
         android:layout_height="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="152dp"
         android:contentDescription="@string/planet_names"
-        app:layout_constraintEnd_toEndOf="@+id/imageView16"
-        app:layout_constraintTop_toTopOf="@+id/imageView16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.734"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/team_rockets_bookclub"
         tools:ignore="ImageContrastCheck" />
 
@@ -191,11 +194,13 @@
         android:id="@+id/imageView27"
         android:layout_width="264dp"
         android:layout_height="35dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="20dp"
         android:contentDescription="@string/planet_names"
-        app:layout_constraintEnd_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/imageView18"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.697"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.419"
         app:srcCompat="@drawable/bakis_bookclub"
         tools:ignore="ImageContrastCheck" />
 
@@ -211,18 +216,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.001"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="DuplicateSpeakableTextCheck" />
-
-    <ImageView
-        android:id="@+id/bakiBtn"
-        android:layout_width="411dp"
-        android:layout_height="201dp"
-        android:layout_marginTop="192dp"
-        android:contentDescription="@string/grey_background"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintTop_toTopOf="@+id/imageView15"
-        app:srcCompat="@drawable/rectangle165" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
