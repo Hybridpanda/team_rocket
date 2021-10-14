@@ -8,30 +8,35 @@
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="722dp"
-        android:layout_height="1081dp"
+        android:layout_width="597dp"
+        android:layout_height="924dp"
         android:contentDescription="@string/star_background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.504"
         app:srcCompat="@drawable/bookclub_background" />
 
     <ImageView
         android:id="@+id/imageView28"
         android:layout_width="256dp"
         android:layout_height="124dp"
-        android:layout_marginTop="132dp"
-        android:layout_marginEnd="68dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.175"
         app:srcCompat="@drawable/hp_dh" />
 
     <ImageView
         android:id="@+id/imageView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView28"
         app:srcCompat="@drawable/group100" />
 
@@ -50,10 +55,12 @@
         android:id="@+id/imageView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="376dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView35"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
         app:srcCompat="@drawable/icon_material_keyboard_backspace" />
 
     <ImageView
@@ -69,50 +76,63 @@
         android:id="@+id/imageView38"
         android:layout_width="262dp"
         android:layout_height="34dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="92dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView35"
+        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.755"
         app:srcCompat="@drawable/log_your_journey" />
 
     <ImageView
         android:id="@+id/imageView39"
         android:layout_width="206dp"
         android:layout_height="78dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView37"
+        app:layout_constraintVertical_bias="0.573"
         app:srcCompat="@drawable/rectangle166" />
 
     <ImageView
         android:id="@+id/imageView40"
         android:layout_width="193dp"
         android:layout_height="17dp"
-        android:layout_marginEnd="164dp"
         android:layout_marginBottom="84dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView35"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/chapters" />
 
     <ImageView
         android:id="@+id/imageView41"
         android:layout_width="134dp"
         android:layout_height="40dp"
-        android:layout_marginStart="244dp"
         android:layout_marginBottom="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.922"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView35"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/rectangle61" />
 
     <ImageView
         android:id="@+id/imageView43"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
         android:layout_marginBottom="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.937"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView35"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/enter_img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
