@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".activities.UlyssesActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.TrinketsActivity"
             android:exported="true" />
         <activity
