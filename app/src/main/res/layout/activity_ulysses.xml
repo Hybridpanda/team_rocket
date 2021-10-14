@@ -27,7 +27,7 @@
         app:srcCompat="@drawable/gas_gaint1" />
 
     <ImageView
-        android:id="@+id/imageView47"
+        android:id="@+id/overView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +39,7 @@
         app:srcCompat="@drawable/icon_material_keyboard_backspace" />
 
     <ImageView
-        android:id="@+id/imageView48"
+        android:id="@+id/EraView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:rotation="180"

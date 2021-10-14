@@ -28,7 +28,7 @@
         app:srcCompat="@drawable/island_planet1" />
 
     <ImageView
-        android:id="@+id/imageView53"
+        android:id="@+id/erBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,7 +40,7 @@
         app:srcCompat="@drawable/icon_material_keyboard_backspace" />
 
     <ImageView
-        android:id="@+id/imageView54"
+        android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:rotation="180"

@@ -29,7 +29,7 @@
         app:srcCompat="@drawable/wet_planet2" />
 
     <ImageView
-        android:id="@+id/imageView50"
+        android:id="@+id/ulysView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +41,7 @@
         app:srcCompat="@drawable/icon_material_keyboard_backspace" />
 
     <ImageView
-        android:id="@+id/imageView51"
+        android:id="@+id/percyJView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:rotation="180"
