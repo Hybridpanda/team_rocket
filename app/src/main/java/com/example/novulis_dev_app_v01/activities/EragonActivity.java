@@ -15,8 +15,8 @@ public class EragonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eragon);
 
-        ImageView nextBtn = findViewById(R.id.PercyView);
-        nextBtn.setOnClickListener(view -> {
+        ImageView nextofBtn = findViewById(R.id.percyJView);
+        nextofBtn.setOnClickListener(view -> {
             Intent i = new Intent(this, PercyJacksonActivity.class);
             startActivity(i);
         });
@@ -27,5 +27,4 @@ public class EragonActivity extends AppCompatActivity {
             startActivity(i);
         });
     }
-
 }

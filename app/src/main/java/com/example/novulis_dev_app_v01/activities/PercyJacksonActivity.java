@@ -15,13 +15,13 @@ public class PercyJacksonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_percy_jackson);
 
-        ImageView nextBtn = findViewById(R.id.next);
-        nextBtn.setOnClickListener(view -> {
+        ImageView nextinBtn = findViewById(R.id.next);
+        nextinBtn.setOnClickListener(view -> {
             Intent i = new Intent(this, InProgressActivity.class);
             startActivity(i);
         });
-        ImageView backBtn = findViewById(R.id.erBack);
-        backBtn.setOnClickListener(view -> {
+        ImageView backishBtn = findViewById(R.id.erBack);
+        backishBtn.setOnClickListener(view -> {
             Intent i = new Intent(this, EragonActivity.class);
             startActivity(i);
         });

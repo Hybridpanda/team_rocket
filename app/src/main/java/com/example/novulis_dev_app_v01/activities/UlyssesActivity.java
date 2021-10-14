@@ -22,10 +22,10 @@ public class UlyssesActivity extends AppCompatActivity {
             startActivity(i);
         });
 
-        ImageView backBtn = findViewById(R.id.overView);
-        backBtn.setOnClickListener(view -> {
-            Intent i = new Intent(this, BookClubFragment.class);
-            startActivity(i);
-        });
+        //ImageView backBtn = findViewById(R.id.overView);
+        //backBtn.setOnClickListener(view -> {
+        //    Intent i = new Intent(this, .class);
+        //    startActivity(i);
+        //});
     }
 }
