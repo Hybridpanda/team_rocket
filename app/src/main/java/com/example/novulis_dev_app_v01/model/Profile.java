@@ -30,6 +30,7 @@ public class Profile implements Serializable {
     private ArrayList<Book> library;
     private ArrayList<Log> bookLog;
     private String currentBook;
+    private String currentShip;
 
     private static  final  String BASE_URL="https://www.googleapis.com/books/v1/volumes?q=title:";
     RequestQueue mRequestQueue;
@@ -37,7 +38,7 @@ public class Profile implements Serializable {
     public Profile() {
         library = new ArrayList<>();
         bookLog = new ArrayList<>();
-
+        currentShip = "Rocket";
     }
 
     public void saveBookLog(Context mContext) {
@@ -76,6 +77,7 @@ public class Profile implements Serializable {
         ArrayList<String> profileDetails = new ArrayList<>();
 
         profileDetails.add(currentBook);
+        profileDetails.add(currentShip);
 
         try {
             System.out.println("Saving Profile");
@@ -121,6 +123,7 @@ public class Profile implements Serializable {
         }
 
         currentBook = profileDetails.get(0);
+        currentShip = profileDetails.get(1);
 
     }
 
@@ -338,6 +341,10 @@ public class Profile implements Serializable {
     public void setCurrentBook(String currentBook) {
         this.currentBook = currentBook;
     }
+
+    public String getCurrentShip() { return currentShip; }
+
+    public void setCurrentShip(String currentShip) { this.currentShip = currentShip; }
 
     public void addLog(Log log) {
         for (Book book : library) {

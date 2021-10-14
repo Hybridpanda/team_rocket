@@ -1,8 +1,10 @@
 package com.example.novulis_dev_app_v01.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import android.widget.ImageView;
 import com.example.novulis_dev_app_v01.R;
 import com.example.novulis_dev_app_v01.activities.CustomisationActivity;
 import com.example.novulis_dev_app_v01.activities.TrinketsActivity;
+import com.example.novulis_dev_app_v01.model.Profile;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +27,7 @@ public class ProfileFragment extends Fragment {
 
     private Button trinketsBtn;
     private ImageView shipCustomisation;
+    private Profile profile;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -34,6 +38,16 @@ public class ProfileFragment extends Fragment {
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
     }
 
     @Override
@@ -51,6 +65,11 @@ public class ProfileFragment extends Fragment {
 
         trinketsBtn = view.findViewById(R.id.trinketsBtn);
         shipCustomisation = view.findViewById(R.id.imageView42);
+        profile = new Profile();
+        profile.loadProfile(view.getContext());
+        if(profile.getCurrentShip().equals("Flying Car")) {
+            shipCustomisation.setImageResource(R.drawable.flying_car);
+        }
 
         trinketsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
