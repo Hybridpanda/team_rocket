@@ -83,18 +83,6 @@
                     app:srcCompat="@drawable/shipcust_paint_b1" />
 
                 <ImageView
-                    android:id="@+id/paintAselected"
-                    android:visibility="invisible"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="32dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.12"
-                    app:srcCompat="@drawable/shipcust_paint_b1_selected" />
-
-                <ImageView
                     android:id="@+id/paintB"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
@@ -110,7 +98,7 @@
     </HorizontalScrollView>
 
     <ImageView
-        android:id="@+id/shipPreview"
+        android:id="@+id/shipPreviewDecal"
         android:layout_width="231dp"
         android:layout_height="296dp"
         app:layout_constraintBottom_toTopOf="@+id/menuBox"
@@ -160,10 +148,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/menuBox"
-        app:layout_constraintEnd_toEndOf="@+id/shipPreview"
+        app:layout_constraintEnd_toEndOf="@+id/shipPreviewDecal"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/shipPreview"
-        app:layout_constraintTop_toTopOf="@+id/shipPreview"
+        app:layout_constraintStart_toStartOf="@+id/shipPreviewDecal"
+        app:layout_constraintTop_toTopOf="@+id/shipPreviewDecal"
         app:layout_constraintVertical_bias="0.596"
         app:srcCompat="@drawable/shipcust_default_trial_a1" />
 

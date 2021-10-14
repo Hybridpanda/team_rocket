@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.example.novulis_dev_app_v01.R;
 import com.example.novulis_dev_app_v01.callbacks.FragmentCallback;
+import com.example.novulis_dev_app_v01.model.Profile;
 
 public class BodyCustomisationFragment extends Fragment {
 
@@ -21,6 +22,10 @@ public class BodyCustomisationFragment extends Fragment {
     private ImageView bodyTab;
     private ImageView paintTab;
     private ImageView trailTab;
+    private ImageView flyingCarIv;
+    private ImageView shipPreview;
+
+    private Profile profile;
 
     public BodyCustomisationFragment() {
         // Required empty public constructor
@@ -58,9 +63,14 @@ public class BodyCustomisationFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_body_customisation, container, false);
 
+        profile = new Profile();
+        profile.loadProfile(view.getContext());
+
         bodyTab = view.findViewById(R.id.shipTab);
         paintTab = view.findViewById(R.id.paintTab);
         trailTab = view.findViewById(R.id.trailTab);
+        flyingCarIv = view.findViewById(R.id.bodyItem4);
+        shipPreview = view.findViewById(R.id.shipPreview);
 
         paintTab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +85,15 @@ public class BodyCustomisationFragment extends Fragment {
             public void onClick(View view) {
                 Fragment fragment = new TrailCustomisationFragment();
                 callback.onButtonClicked(fragment);
+            }
+        });
+
+        flyingCarIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shipPreview.setImageResource(R.drawable.flying_car_preview);
+                profile.setCurrentShip("Flying Car");
+                profile.saveProfile(view.getContext());
             }
         });
 

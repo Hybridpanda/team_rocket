@@ -21,6 +21,8 @@ public class TrailCustomisationFragment extends Fragment {
     private ImageView bodyTab;
     private ImageView paintTab;
     private ImageView trailTab;
+    private ImageView trailColourIv;
+    private ImageView trailStyleIv;
 
     public TrailCustomisationFragment() {
         // Required empty public constructor
@@ -60,6 +62,8 @@ public class TrailCustomisationFragment extends Fragment {
         bodyTab = view.findViewById(R.id.shipTab);
         paintTab = view.findViewById(R.id.paintTab);
         trailTab = view.findViewById(R.id.trailTab);
+        trailStyleIv = view.findViewById(R.id.trailStyleIv);
+        trailColourIv = view.findViewById(R.id.trailColourIv);
 
         paintTab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +77,14 @@ public class TrailCustomisationFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Fragment fragment = new BodyCustomisationFragment();
+                callback.onButtonClicked(fragment);
+            }
+        });
+
+        trailStyleIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = new TrailStyleCustomisationFragment();
                 callback.onButtonClicked(fragment);
             }
         });
