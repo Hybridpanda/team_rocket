@@ -16,6 +16,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".activities.PercyJacksonActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.EragonActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.UlyssesActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.CustomisationActivity"
             android:exported="true" />
         <activity
