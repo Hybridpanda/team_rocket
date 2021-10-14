@@ -176,15 +176,16 @@
 
     <Button
         android:id="@+id/teamRocketBtn"
-        android:layout_width="329dp"
+        android:layout_width="378dp"
         android:layout_height="92dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="8dp"
+        android:alpha="0"
+        android:background="@drawable/rectangle61"
         android:contentDescription="@string/grey_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view"
-        tools:ignore="DuplicateSpeakableTextCheck"
-        tools:text="button" />
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <ImageView
         android:id="@+id/bakiBtn"
