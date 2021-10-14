@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.BodyCustomisationFragment"
     android:background="@color/backgroundGrey">
 
     <ImageView
         android:id="@+id/trailTab"
         android:layout_width="44dp"
         android:layout_height="45dp"
+        android:layout_marginBottom="284dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.277"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.586"
         app:srcCompat="@drawable/trail_tab" />
 
@@ -22,11 +23,11 @@
         android:id="@+id/paintTab"
         android:layout_width="44dp"
         android:layout_height="45dp"
+        android:layout_marginBottom="284dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/trailTab"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.586"
         app:srcCompat="@drawable/paint_tab" />
 
@@ -45,6 +46,7 @@
         android:id="@+id/menuBox"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -218,12 +220,14 @@
 
     <ImageView
         android:id="@+id/shipPreview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_width="231dp"
+        android:layout_height="296dp"
+        app:layout_constraintBottom_toTopOf="@+id/menuBox"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.488"
         app:srcCompat="@drawable/shipcust_ship_default" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

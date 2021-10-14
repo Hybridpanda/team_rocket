@@ -9,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.novulis_dev_app_v01.R;
+import com.example.novulis_dev_app_v01.activities.CustomisationActivity;
 import com.example.novulis_dev_app_v01.activities.TrinketsActivity;
 
 /**
@@ -21,6 +23,7 @@ import com.example.novulis_dev_app_v01.activities.TrinketsActivity;
 public class ProfileFragment extends Fragment {
 
     private Button trinketsBtn;
+    private ImageView shipCustomisation;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -47,11 +50,20 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         trinketsBtn = view.findViewById(R.id.trinketsBtn);
+        shipCustomisation = view.findViewById(R.id.imageView42);
 
         trinketsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), TrinketsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        shipCustomisation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), CustomisationActivity.class);
                 startActivity(intent);
             }
         });

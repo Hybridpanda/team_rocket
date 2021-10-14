@@ -66,5 +66,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/shipcust_default_with_bolt_trail" />
+        app:srcCompat="@drawable/shipcust_default_with_bolt_trail"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.DecalCustomisationFragment"
+    android:background="@color/backgroundGrey">
+
+    <ImageView
+        android:id="@+id/trailTab"
+        android:layout_width="44dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="284dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.277"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.586"
+        app:srcCompat="@drawable/trail_tab" />
+
+    <ImageView
+        android:id="@+id/shipTab"
+        android:layout_width="44dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="284dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.002"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.586"
+        app:srcCompat="@drawable/body_tab" />
+
+    <ImageView
+        android:id="@+id/paintTabb"
+        android:layout_width="57dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="284dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/trailTab"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/paint_tab_selected" />
+
+    <ImageView
+        android:id="@+id/menuBox"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"
+        app:srcCompat="@drawable/customisation_menu_background" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="410dp"
+        android:layout_height="184dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/menuBox">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/paintA"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="32dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.12"
+                    app:srcCompat="@drawable/shipcust_paint_b1" />
+
+                <ImageView
+                    android:id="@+id/paintAselected"
+                    android:visibility="invisible"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="32dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.12"
+                    app:srcCompat="@drawable/shipcust_paint_b1_selected" />
+
+                <ImageView
+                    android:id="@+id/paintB"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/paintA"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.12"
+                    app:srcCompat="@drawable/shipcust_paint_b2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ImageView
+        android:id="@+id/shipPreview"
+        android:layout_width="231dp"
+        android:layout_height="296dp"
+        app:layout_constraintBottom_toTopOf="@+id/menuBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.488"
+        app:srcCompat="@drawable/shipcust_ship_default" />
+
+    <ImageView
+        android:id="@+id/colourSchemeIv"
+        android:layout_width="137dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="50dp"
+        android:src="@drawable/colour_scheme_unselected"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/menuBox"
+        app:layout_constraintVertical_bias="0.551" />
+
+    <ImageView
+        android:id="@+id/decalIv"
+        android:layout_width="137dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="50dp"
+        android:src="@drawable/decal_selected"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/menuBox"
+        app:layout_constraintVertical_bias="0.551" />
+
+    <ImageView
+        android:id="@+id/shipDecal"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="430dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shipcust_default_paint_b1" />
+
+    <ImageView
+        android:id="@+id/trailPreview"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/menuBox"
+        app:layout_constraintEnd_toEndOf="@+id/shipPreview"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/shipPreview"
+        app:layout_constraintTop_toTopOf="@+id/shipPreview"
+        app:layout_constraintVertical_bias="0.596"
+        app:srcCompat="@drawable/shipcust_default_trial_a1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
