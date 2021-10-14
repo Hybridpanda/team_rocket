@@ -62,4 +62,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.266"
         app:srcCompat="@drawable/component26" />
+
+    <ImageView
+        android:id="@+id/imageView58"
+        android:layout_width="129dp"
+        android:layout_height="55dp"
+        app:srcCompat="@drawable/ulysses"
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="206dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
