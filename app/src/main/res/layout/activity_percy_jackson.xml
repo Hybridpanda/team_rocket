@@ -4,50 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.EragonActivity">
+    tools:context=".activities.PercyJacksonActivity">
 
     <View
-        android:id="@+id/view3"
-        android:layout_width="396dp"
-        android:layout_height="813dp"
+        android:id="@+id/view4"
+        android:layout_width="402dp"
+        android:layout_height="815dp"
         android:background="@drawable/bookclub_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView49"
-        android:layout_width="177dp"
-        android:layout_height="182dp"
+        android:id="@+id/imageView52"
+        android:layout_width="176dp"
+        android:layout_height="176dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/wet_planet2" />
+        app:srcCompat="@drawable/island_planet1" />
 
     <ImageView
-        android:id="@+id/imageView50"
+        android:id="@+id/imageView53"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499"
         app:srcCompat="@drawable/icon_material_keyboard_backspace" />
 
     <ImageView
-        android:id="@+id/imageView51"
+        android:id="@+id/imageView54"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:rotation="180"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintHorizontal_bias="0.913"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499"
