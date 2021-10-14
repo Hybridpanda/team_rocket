@@ -11,7 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.novulis_dev_app_v01.R;
+import com.example.novulis_dev_app_v01.activities.EragonActivity;
 import com.example.novulis_dev_app_v01.activities.InProgressActivity;
+import com.example.novulis_dev_app_v01.activities.PercyJacksonActivity;
+import com.example.novulis_dev_app_v01.activities.UlyssesActivity;
 
 public class BookClubFragment extends Fragment {
 
@@ -45,6 +48,30 @@ public class BookClubFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), InProgressActivity.class);
                 startActivity(i);
+            }
+        });
+        ImageView ulysBtn = view.findViewById(R.id.ulyssesView);
+        ulysBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent(getActivity(), UlyssesActivity.class);
+                startActivity(i);
+            }
+        });
+        ImageView eragBtn = view.findViewById(R.id.EragonView);
+        eragBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), EragonActivity.class);
+                startActivity(i);
+            }
+        });
+        ImageView PercyBtn = view.findViewById(R.id.PercyView);
+        PercyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            Intent i = new Intent(getActivity(), PercyJacksonActivity.class);
+            startActivity(i);
             }
         });
 

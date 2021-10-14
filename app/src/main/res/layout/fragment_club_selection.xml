@@ -110,15 +110,14 @@
 
     <ImageView
         android:id="@+id/imageView19"
-        android:layout_width="390dp"
-        android:layout_height="188dp"
+        android:layout_width="387dp"
+        android:layout_height="179dp"
         android:contentDescription="@string/grey_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.699"
+        app:layout_constraintVertical_bias="0.689"
         app:srcCompat="@drawable/rectangle165"
         tools:ignore="ImageContrastCheck" />
 
@@ -155,10 +154,10 @@
         android:contentDescription="@string/planet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toStartOf="@+id/imageView15"
+        app:layout_constraintTop_toTopOf="@+id/imageView15"
+        app:layout_constraintVertical_bias="0.075"
         app:srcCompat="@drawable/sun1"
         tools:ignore="ImageContrastCheck" />
 
@@ -169,10 +168,10 @@
         android:contentDescription="@string/planet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418"
+        app:layout_constraintVertical_bias="0.417"
         app:srcCompat="@drawable/wet_planet1" />
 
     <ImageView
