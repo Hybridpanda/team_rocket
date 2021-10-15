@@ -21,11 +21,5 @@ public class UlyssesActivity extends AppCompatActivity {
             Intent i = new Intent(this, EragonActivity.class);
             startActivity(i);
         });
-
-        //ImageView backBtn = findViewById(R.id.overView);
-        //backBtn.setOnClickListener(view -> {
-        //    Intent i = new Intent(this, .class);
-        //    startActivity(i);
-        //});
     }
 }
