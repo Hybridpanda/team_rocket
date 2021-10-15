@@ -185,6 +185,7 @@ public class LogFragment extends Fragment {
 
                         System.out.println("Log note: " + logNote.getText().toString());
                         profile.addLog(log);
+                        profile.setPagesRead(100);
                         profile.saveProfile(v.getContext());
                         profile.saveBookLog(v.getContext());
                         profile.saveLibrary(v.getContext());

@@ -116,6 +116,12 @@
                         android:layout_height="wrap_content"
                         android:text="Progress:" />
 
+                    <TextView
+                        android:id="@+id/progressFraction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Fraction" />
+
                     <ProgressBar
                         android:id="@+id/bookProgressBar"
                         style="?android:attr/progressBarStyleHorizontal"

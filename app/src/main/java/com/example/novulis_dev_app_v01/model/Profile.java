@@ -31,14 +31,16 @@ public class Profile implements Serializable {
     private ArrayList<Log> bookLog;
     private String currentBook;
     private String currentShip;
+    private int pagesRead;
 
-    private static  final  String BASE_URL="https://www.googleapis.com/books/v1/volumes?q=title:";
+    private static  final  String BASE_URL="https://www.googleapis.com/books/v1/volumes?q=intitle:";
     RequestQueue mRequestQueue;
 
     public Profile() {
         library = new ArrayList<>();
         bookLog = new ArrayList<>();
         currentShip = "Rocket";
+        pagesRead = 60;
     }
 
     public void saveBookLog(Context mContext) {
@@ -78,6 +80,7 @@ public class Profile implements Serializable {
 
         profileDetails.add(currentBook);
         profileDetails.add(currentShip);
+        profileDetails.add(pagesRead + "");
 
         try {
             System.out.println("Saving Profile");
@@ -124,6 +127,7 @@ public class Profile implements Serializable {
 
         currentBook = profileDetails.get(0);
         currentShip = profileDetails.get(1);
+        pagesRead = Integer.parseInt(profileDetails.get(2));
 
     }
 
@@ -141,7 +145,7 @@ public class Profile implements Serializable {
         }
     }
 
-    public void createLibrary(String searchString, Context mContext) {
+    public void createLibrary(Context mContext) {
         mRequestQueue = Volley.newRequestQueue(mContext);
 
         boolean is_connected = Read_network_state(mContext);
@@ -149,12 +153,29 @@ public class Profile implements Serializable {
         {
             return;
         }
-
+        // Add Philosopher's Stone to currently reading
+        String searchString = "Philosopher's+Stone+inauthor:rowling";
         String final_query=searchString.replace(" ","+");
         Uri uri=Uri.parse(BASE_URL+final_query);
         Uri.Builder builder = uri.buildUpon();
         System.out.println(builder.toString());
-        parseJson(builder.toString(), mContext);
+        parseJson(builder.toString(), mContext, "Currently Reading");
+
+        // Add Percy Jackson to club books
+        searchString = "Percy+Jackson+inauthor:Riordan";
+        final_query=searchString.replace(" ","+");
+        uri=Uri.parse(BASE_URL+final_query);
+        builder = uri.buildUpon();
+        System.out.println(builder.toString());
+        parseJson(builder.toString(), mContext, "Club Books");
+
+        // Add Lord of the Rings to read again
+        searchString = "Lord+of+the+Rings+inauthor:Tolkien";
+        final_query=searchString.replace(" ","+");
+        uri=Uri.parse(BASE_URL+final_query);
+        builder = uri.buildUpon();
+        System.out.println(builder.toString());
+        parseJson(builder.toString(), mContext, "Read Again");
     }
 
     private boolean Read_network_state(Context context)
@@ -165,7 +186,7 @@ public class Profile implements Serializable {
         return is_connected;
     }
 
-    private void parseJson(String key, Context mContext) {
+    private void parseJson(String key, Context mContext, String category) {
 
         final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, key.toString(), null,
                 new Response.Listener<JSONObject>() {
@@ -181,10 +202,11 @@ public class Profile implements Serializable {
                         int pageCount = 1000;
                         String categories = "No categories Available ";
                         String genre = "No genre available";
-                        String category = "Club Books";
                         String previewLink = "No preview available";
                         String buy ="";
                         int currentPage = 0;
+
+                        int booksToAdd = 1;
 
                         String price = "NOT_FOR_SALE";
                         try {
@@ -194,17 +216,20 @@ public class Profile implements Serializable {
                             // books, as we need it as a unique identifier. If it doesn't have one
                             // move on to the next book in the search results.
 
-                            for (int j = 0; j < items.length(); j++) {
+                            if (category.equals("Currently Reading")) {
+                                currentPage = 150;
+                                booksToAdd = 1;
+                            } else if(category.equals("Club Books")) {
+                                currentPage = 50;
+                                booksToAdd = items.length();
+                            } else if(category.equals("Read Again")) {
+                                booksToAdd = items.length();
+                            }
 
-                                // Quick way of adding books to each category
-                                if (j%3 == 0){
-                                    category = "Currently Reading";
-                                    currentPage = 50;
-                                } else if (j%3 == 1) {
-                                    category = "Read Again";
-                                } else {
-                                    category = "Club Books";
-                                }
+                            for (int j = 0; j < booksToAdd; j++) {
+
+
+
                                 JSONObject item = items.getJSONObject(j);
                                 JSONObject volumeInfo = item.getJSONObject("volumeInfo");
 
@@ -266,10 +291,10 @@ public class Profile implements Serializable {
                                         e.printStackTrace();
                                     }
 
-                                    if (currentPage < 0 || currentPage >= pageCount) {
+                                    if (category.equals("Read Again")) {
                                         currentPage = pageCount;
-                                        category = "Read Again";
                                     }
+                                    if (currentPage >= pageCount) {currentPage = pageCount;}
 
                                     Book book = new Book(isbn, title, description, pageCount, thumbnail, author, category, currentPage, genre, previewLink);
                                     System.out.println(book.toString());
@@ -285,6 +310,9 @@ public class Profile implements Serializable {
                                 setCurrentBook(library.get(0).getTitle());
                                 System.out.println("Library saved to file");
                                 saveProfile(mContext);
+                                f.flush();
+                                f.close();
+                                s.flush();
                                 s.close();
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -341,6 +369,10 @@ public class Profile implements Serializable {
     public void setCurrentBook(String currentBook) {
         this.currentBook = currentBook;
     }
+
+    public int getPagesRead() {return pagesRead;}
+
+    public void setPagesRead(int pagesRead) {this.pagesRead = pagesRead;}
 
     public String getCurrentShip() { return currentShip; }
 

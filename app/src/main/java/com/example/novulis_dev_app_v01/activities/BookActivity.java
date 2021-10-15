@@ -75,6 +75,7 @@ public class BookActivity extends AppCompatActivity {
         TextView tvCatag = findViewById(R.id.aa_categorie);
         TextView tvPublishDate = findViewById(R.id.aa_publish_date);
         TextView tvPreview = findViewById(R.id.aa_preview);
+        TextView tvProgress = findViewById(R.id.progressFraction);
         Button setCurrentBookBtn = findViewById(R.id.setAsCurrentBookBtn);
 
         ImageView ivThumbnail = findViewById(R.id.aa_thumbnail);
@@ -91,6 +92,8 @@ public class BookActivity extends AppCompatActivity {
         if (pageCount != 0) {
             currentProgress = (int) Math.floor(100 * currentPage/pageCount);
         }
+
+        tvProgress.setText(currentPage + " / " + pageCount);
 
         System.out.println(currentProgress);
         bookProgressBar.setMax(100);

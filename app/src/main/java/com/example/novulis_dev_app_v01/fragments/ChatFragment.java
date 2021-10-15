@@ -1,6 +1,7 @@
 package com.example.novulis_dev_app_v01.fragments;
 
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.dynamicanimation.animation.DynamicAnimation;
@@ -12,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,6 +33,10 @@ public class ChatFragment extends Fragment {
     LinearLayout[] layoutArray;
 
     Button sendMessageBtn;
+
+    EditText messageEt;
+    TextView chatBubble2;
+    TextView chatBubble4;
 
     public ChatFragment() {
         // Required empty public constructor
@@ -60,6 +67,9 @@ public class ChatFragment extends Fragment {
         chatLayout4 = view.findViewById(R.id.chatLayout4);
 
         sendMessageBtn = view.findViewById(R.id.sendBtn);
+        messageEt = view.findViewById(R.id.messageEt);
+        chatBubble2 = view.findViewById(R.id.chatBubble2);
+        chatBubble4 = view.findViewById(R.id.chatBubble4);
 
         chatLayout2.setVisibility(View.INVISIBLE);
         chatLayout3.setVisibility(View.INVISIBLE);
@@ -77,6 +87,20 @@ public class ChatFragment extends Fragment {
         sendMessageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                InputMethodManager imm = (InputMethodManager)view.getContext().getSystemService(
+                        Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(messageEt.getWindowToken(), 0);
+
+                if (messageIncrement == 0) {
+                    chatBubble2.setText(messageEt.getText());
+                } else if (messageIncrement == 2) {
+                    chatBubble4.setText(messageEt.getText());
+                }
+
+                messageEt.setText("");
+                System.out.println("Message Incremenet: " + messageIncrement);
+
                 layoutArray[messageIncrement].setVisibility(View.VISIBLE);
                 SpringAnimation chatAnimation = createNewAnimation(layoutArray[messageIncrement]);
                 chatAnimation.start();
