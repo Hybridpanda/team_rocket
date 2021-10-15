@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Create the library file with a set list of books
         profile.createLibrary("fantasy", getApplicationContext());
+        profile.saveProfile(this);
 
         Button loginBtn = (Button)findViewById(R.id.loginBtn);
 

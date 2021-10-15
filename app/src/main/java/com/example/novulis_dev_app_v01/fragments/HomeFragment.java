@@ -45,6 +45,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         profile = new Profile();
+        //profile.saveProfile(view.getContext());
         profile.loadProfile(view.getContext());
 
         currentBookTv = view.findViewById(R.id.currentBookTv);
