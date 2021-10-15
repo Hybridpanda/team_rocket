@@ -29,7 +29,7 @@
         app:srcCompat="@drawable/wet_planet2" />
 
     <ImageView
-        android:id="@+id/imageView50"
+        android:id="@+id/ulysView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +41,7 @@
         app:srcCompat="@drawable/icon_material_keyboard_backspace" />
 
     <ImageView
-        android:id="@+id/imageView51"
+        android:id="@+id/percyJView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:rotation="180"
@@ -69,8 +69,12 @@
         android:id="@+id/imageView59"
         android:layout_width="117dp"
         android:layout_height="41dp"
-        app:srcCompat="@drawable/eragon"
-        tools:layout_editor_absoluteX="127dp"
-        tools:layout_editor_absoluteY="235dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.308"
+        app:srcCompat="@drawable/eragon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,7 +55,7 @@
         app:srcCompat="@drawable/wet_planet1" />
 
     <ImageView
-        android:id="@+id/imageView36"
+        android:id="@+id/back"
         android:layout_width="35dp"
         android:layout_height="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,11 +68,11 @@
 
     <ImageView
         android:id="@+id/imageView37"
-        android:layout_width="413dp"
-        android:layout_height="309dp"
+        android:layout_width="426dp"
+        android:layout_height="273dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
@@ -137,5 +137,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.787"
         app:srcCompat="@drawable/enter_img" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="180dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.795"
+        android:autofillHints="" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

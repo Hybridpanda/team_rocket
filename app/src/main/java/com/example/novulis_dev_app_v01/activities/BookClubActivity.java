@@ -22,5 +22,20 @@ public class BookClubActivity extends AppCompatActivity {
             Intent i = new Intent(this, InProgressActivity.class);
             startActivity(i);
         });
+        ImageView ulysBtn = findViewById(R.id.ulyssesView);
+        ulysBtn.setOnClickListener(view -> {
+            Intent i = new Intent(this, UlyssesActivity.class);
+            startActivity(i);
+        });
+        ImageView eragBtn = findViewById(R.id.EragonView);
+        eragBtn.setOnClickListener(view -> {
+            Intent i = new Intent(this, EragonActivity.class);
+            startActivity(i);
+        });
+        ImageView PercyBtn = findViewById(R.id.PercyView);
+        PercyBtn.setOnClickListener(view -> {
+            Intent i = new Intent(this, PercyJacksonActivity.class);
+            startActivity(i);
+        });
     }
 }
