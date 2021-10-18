@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentContainer;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.bumptech.glide.Glide;
@@ -114,7 +113,7 @@ public class BookActivity extends AppCompatActivity {
         setCurrentBookBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                profile.setCurrentBook(finalTitle);
+                profile.setCurrentBookTitle(finalTitle);
                 profile.saveProfile(getApplicationContext());
                 Toast.makeText(getApplicationContext(), finalTitle + " set as current book", Toast.LENGTH_LONG).show();
             }

@@ -7,16 +7,12 @@ import androidx.dynamicanimation.animation.DynamicAnimation;
 import androidx.dynamicanimation.animation.SpringAnimation;
 import androidx.dynamicanimation.animation.SpringForce;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,9 +21,11 @@ import android.widget.Spinner;
 
 import com.example.novulis_dev_app_v01.R;
 import com.example.novulis_dev_app_v01.adapters.LogRecyclerViewAdapter;
-import com.example.novulis_dev_app_v01.adapters.RecyclerViewAdapter;
+import com.example.novulis_dev_app_v01.model.Book;
 import com.example.novulis_dev_app_v01.model.Log;
 import com.example.novulis_dev_app_v01.model.Profile;
+
+import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -52,6 +50,7 @@ public class LogFragment extends Fragment {
     Button saveBtn;
     Button closeBtn;
     ImageView flyingCarIv;
+    DiscreteSeekBar pagesSeekBar;
 
     // Recycler view for log display
     RecyclerView logRecyclerView;
@@ -123,6 +122,7 @@ public class LogFragment extends Fragment {
                 flyingCarIv = unlockView.findViewById(R.id.trinketIv);
 
                 // Find elements by id
+                pagesSeekBar = mView.findViewById(R.id.pageSeekBar);
                 bookDropdown = mView.findViewById(R.id.bookDropdown);
                 logDropdown = mView.findViewById(R.id.logDropdown);
                 logAmount = mView.findViewById(R.id.logAmountEt);
@@ -141,6 +141,10 @@ public class LogFragment extends Fragment {
                 String[] bookTitles = profile.getBookTitles();
                 ArrayAdapter<String> titleAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, bookTitles);
                 bookDropdown.setAdapter(titleAdapter);
+
+                //Book currentBook = profile.getCurrentBook();
+                pagesSeekBar.setMax(100);
+                pagesSeekBar.setProgress(20);
 
                 // Create the animation for the unlock
 //                RotateAnimation forwardAnimation = new RotateAnimation(0, 30f,
@@ -177,9 +181,10 @@ public class LogFragment extends Fragment {
                 saveBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
                         Log log = new Log(Calendar.getInstance().getTime(),
                                 bookDropdown.getSelectedItem().toString(),
-                                Integer.parseInt(logAmount.getText().toString()),
+                                pagesSeekBar.getProgress(),
                                 logNote.getText().toString(),
                                 durationTotalMinutes);
 

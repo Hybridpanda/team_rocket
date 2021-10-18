@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
         profile.loadProfile(view.getContext());
 
         currentBookTv = view.findViewById(R.id.currentBookTv);
-        currentBookTv.setText(profile.getCurrentBook());
+        currentBookTv.setText(profile.getCurrentBookTitle());
 
         pagesReadProgressBar = view.findViewById(R.id.pagesReadProgressBar);
         readingTimeProgressBar = view.findViewById(R.id.readingTimeProgressBar);

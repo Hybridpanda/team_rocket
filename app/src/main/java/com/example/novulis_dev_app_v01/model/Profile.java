@@ -29,7 +29,8 @@ public class Profile implements Serializable {
 
     private ArrayList<Book> library;
     private ArrayList<Log> bookLog;
-    private String currentBook;
+    private Book currentBook;
+    private String currentBookTitle;
     private String currentShip;
     private int pagesRead;
 
@@ -78,7 +79,7 @@ public class Profile implements Serializable {
 
         ArrayList<String> profileDetails = new ArrayList<>();
 
-        profileDetails.add(currentBook);
+        profileDetails.add(currentBookTitle);
         profileDetails.add(currentShip);
         profileDetails.add(pagesRead + "");
 
@@ -125,7 +126,8 @@ public class Profile implements Serializable {
             e.printStackTrace();
         }
 
-        currentBook = profileDetails.get(0);
+        currentBookTitle = profileDetails.get(0);
+        setCurrentBook(profileDetails.get(0));
         currentShip = profileDetails.get(1);
         pagesRead = Integer.parseInt(profileDetails.get(2));
 
@@ -307,7 +309,7 @@ public class Profile implements Serializable {
                                 FileOutputStream f = new FileOutputStream(file);
                                 ObjectOutputStream s = new ObjectOutputStream(f);
                                 s.writeObject(library);
-                                setCurrentBook(library.get(0).getTitle());
+                                setCurrentBookTitle(library.get(0).getTitle());
                                 System.out.println("Library saved to file");
                                 saveProfile(mContext);
                                 f.flush();
@@ -342,6 +344,13 @@ public class Profile implements Serializable {
         return library;
     }
 
+    public Book getBook(String title) {
+        for (Book b : library) {
+            if (b.getTitle().equals(title)) return b;
+        }
+        return null;
+    }
+
     public String[] getBookTitles() {
         String[] bookTitles = new String[library.size()];
         for (int i = 0; i < library.size(); i++) {
@@ -362,12 +371,22 @@ public class Profile implements Serializable {
         this.bookLog = bookLog;
     }
 
-    public String getCurrentBook() {
+    public String getCurrentBookTitle() {
+        return currentBookTitle;
+    }
+
+    public void setCurrentBook(String title) {
+        System.out.println("Current book set");
+        currentBook = getBook(title);
+    }
+
+    public Book getCurrentBook() {
         return currentBook;
     }
 
-    public void setCurrentBook(String currentBook) {
-        this.currentBook = currentBook;
+    public void setCurrentBookTitle(String currentBookTitle) {
+        setCurrentBook(currentBookTitle);
+        this.currentBookTitle = currentBookTitle;
     }
 
     public int getPagesRead() {return pagesRead;}
@@ -404,7 +423,7 @@ public class Profile implements Serializable {
         return "Profile{" +
                 "library=" + library.toString() +
                 ", bookLog=" + bookLog.toString() +
-                ", currentBook='" + currentBook + '\'' +
+                ", currentBook='" + currentBookTitle + '\'' +
                 '}';
     }
 }
