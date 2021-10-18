@@ -27,8 +27,8 @@ public class BookClubActivity extends AppCompatActivity {
             Intent i = new Intent(this, UlyssesActivity.class);
             startActivity(i);
         });
-        ImageView eragBtn = findViewById(R.id.EragonView);
-        eragBtn.setOnClickListener(view -> {
+        ImageView EragBtn = findViewById(R.id.EragonView);
+        EragBtn.setOnClickListener(view -> {
             Intent i = new Intent(this, EragonActivity.class);
             startActivity(i);
         });
