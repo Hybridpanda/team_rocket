@@ -9,13 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.novulis_dev_app_v01.R;
 import com.example.novulis_dev_app_v01.activities.BookClubsActivity;
 
 public class ClubSelectionFragment extends Fragment {
 
-    Button teamRocketBtn;
+    ImageView teamRocketBtn;
 
     public ClubSelectionFragment() {
         // Required empty public constructor

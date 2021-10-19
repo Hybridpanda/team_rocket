@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="570dp"
-        android:layout_height="867dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:contentDescription="@string/star_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

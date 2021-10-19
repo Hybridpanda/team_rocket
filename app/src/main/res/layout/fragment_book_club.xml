@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".fragments.BookClubFragment">
 
-    <ImageView
-        android:id="@+id/imageView29"
-        android:layout_width="698dp"
-        android:layout_height="1049dp"
-        android:contentDescription="@string/star_background"
+    <View
+        android:id="@+id/view5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bookclub_background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bookclub_background" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView13"
@@ -22,36 +23,36 @@
         android:contentDescription="@string/sun"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.354"
+        app:layout_constraintVertical_bias="0.287"
         app:srcCompat="@drawable/sun1" />
 
     <ImageView
         android:id="@+id/EragonView"
-        android:layout_width="106dp"
-        android:layout_height="98dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:contentDescription="@string/wet_planet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.523"
+        app:layout_constraintVertical_bias="0.682"
         app:srcCompat="@drawable/wet_planet2" />
 
     <ImageView
         android:id="@+id/PercyView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:contentDescription="@string/wet_planet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintHorizontal_bias="0.353"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681"
+        app:layout_constraintVertical_bias="0.743"
         app:srcCompat="@drawable/island_planet1"
         tools:ignore="ImageContrastCheck" />
 
@@ -59,71 +60,77 @@
         android:id="@+id/ulyssesView"
         android:layout_width="262dp"
         android:layout_height="238dp"
+        android:layout_marginStart="164dp"
         android:contentDescription="@string/wet_planet"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.606"
         app:srcCompat="@drawable/gas_gaint1" />
 
     <ImageView
         android:id="@+id/harryView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:contentDescription="@string/wet_planet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintHorizontal_bias="0.897"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.242"
         app:srcCompat="@drawable/wet_planet1"
         tools:ignore="ImageContrastCheck" />
 
-    <ImageView
-        android:id="@+id/imageView30"
-        android:layout_width="143dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="4dp"
-        android:contentDescription="@string/book_description"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PercyView"
-        app:srcCompat="@drawable/pj_lt" />
-
-    <ImageView
-        android:id="@+id/imageView32"
-        android:layout_width="180dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="4dp"
-        android:contentDescription="@string/book_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/harryView"
-        app:srcCompat="@drawable/hp_ps" />
-
-    <ImageView
-        android:id="@+id/imageView33"
+    <TextView
+        android:id="@+id/textView44"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="4dp"
-        android:contentDescription="@string/book_description"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EragonView"
-        app:srcCompat="@drawable/eragon" />
+        android:text="Percy Jackson\nand the Lightning Thief"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/PercyView"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/PercyView"
+        app:layout_constraintTop_toBottomOf="@+id/PercyView" />
 
-    <ImageView
-        android:id="@+id/imageView34"
+    <TextView
+        android:id="@+id/textView49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
-        android:layout_marginEnd="240dp"
-        android:contentDescription="@string/book_description"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Eragon"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/EragonView"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintStart_toStartOf="@+id/EragonView"
+        app:layout_constraintTop_toBottomOf="@+id/EragonView" />
+
+    <TextView
+        android:id="@+id/textView50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Harry Potter\nand the\nPhilosopher's Stone"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/harryView"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="@+id/harryView"
+        app:layout_constraintTop_toBottomOf="@+id/harryView" />
+
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="198dp"
+        android:text="Ulysses"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/ulyssesView"
+        app:layout_constraintEnd_toEndOf="@+id/ulyssesView"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/ulyssesView"
         app:layout_constraintTop_toTopOf="@+id/ulyssesView"
-        app:srcCompat="@drawable/ulysses" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

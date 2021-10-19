@@ -12,8 +12,8 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="397dp"
-        android:layout_height="836dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="#383849"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,20 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.326" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="296dp"
-        android:layout_height="324dp"
-        android:contentDescription="@string/blue_circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ellipse38"
-        tools:ignore="ImageContrastCheck" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -52,170 +38,143 @@
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="390dp"
-        android:layout_height="173dp"
-        android:layout_marginTop="64dp"
-        android:clickable="false"
-        android:contentDescription="@string/grey_background"
+        android:id="@+id/imageView"
+        android:layout_width="296dp"
+        android:layout_height="324dp"
+        android:contentDescription="@string/blue_circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.039"
-        app:srcCompat="@drawable/rectangle186"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="305dp"
-        android:layout_height="126dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="true"
-        android:contentDescription="@string/inner_background"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView15"
-        app:srcCompat="@drawable/rectangle166"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="379dp"
-        android:layout_height="181dp"
-        android:contentDescription="@string/grey_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.402"
-        app:srcCompat="@drawable/rectangle165"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/imageView18"
-        android:layout_width="297dp"
-        android:layout_height="125dp"
-        android:contentDescription="@string/inner_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.739"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.407"
-        app:srcCompat="@drawable/rectangle166" />
-
-    <ImageView
-        android:id="@+id/imageView19"
-        android:layout_width="387dp"
-        android:layout_height="179dp"
-        android:contentDescription="@string/grey_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.689"
-        app:srcCompat="@drawable/rectangle165"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/imageView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/plus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.651"
-        app:srcCompat="@drawable/line55"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/imageView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/plus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.661"
-        app:srcCompat="@drawable/line54"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/imageView24"
-        android:layout_width="84dp"
-        android:layout_height="78dp"
-        android:contentDescription="@string/planet"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.006"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toTopOf="@+id/imageView15"
-        app:layout_constraintVertical_bias="0.075"
-        app:srcCompat="@drawable/sun1"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/imageView25"
-        android:layout_width="48dp"
-        android:layout_height="50dp"
-        android:contentDescription="@string/planet"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.023"
-        app:layout_constraintStart_toStartOf="@+id/imageView17"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417"
-        app:srcCompat="@drawable/wet_planet1" />
-
-    <ImageView
-        android:id="@+id/imageView26"
-        android:layout_width="261dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="152dp"
-        android:contentDescription="@string/planet_names"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.734"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/team_rockets_bookclub"
+        app:srcCompat="@drawable/ellipse38"
         tools:ignore="ImageContrastCheck" />
 
-    <ImageView
-        android:id="@+id/imageView27"
-        android:layout_width="264dp"
-        android:layout_height="35dp"
-        android:contentDescription="@string/planet_names"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.697"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.419"
-        app:srcCompat="@drawable/bakis_bookclub"
-        tools:ignore="ImageContrastCheck" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/teamRocketBtn"
-        android:layout_width="381dp"
-        android:layout_height="97dp"
-        android:layout_marginTop="124dp"
-        android:alpha="0"
-        android:background="@drawable/rectangle61"
-        android:contentDescription="@string/grey_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/teamRocketBtn"
+                android:layout_width="390dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="64dp"
+                android:clickable="false"
+                android:contentDescription="@string/grey_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.039"
+                app:srcCompat="@drawable/rounded_club_button"
+                tools:ignore="ImageContrastCheck" />
+
+            <ImageView
+                android:id="@+id/imageView24"
+                android:layout_width="84dp"
+                android:layout_height="78dp"
+                android:contentDescription="@string/planet"
+                app:layout_constraintBottom_toBottomOf="@+id/teamRocketBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/teamRocketBtn"
+                app:layout_constraintTop_toTopOf="@+id/teamRocketBtn"
+                app:layout_constraintVertical_bias="0.636"
+                app:srcCompat="@drawable/sun1"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/textView53"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_edit_text"
+                android:padding="20dp"
+                android:text="Team Rocket's Bookclub"
+                android:textAlignment="center"
+                android:textColor="#657DDE"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/teamRocketBtn"
+                app:layout_constraintEnd_toEndOf="@+id/teamRocketBtn"
+                app:layout_constraintHorizontal_bias="0.763"
+                app:layout_constraintStart_toStartOf="@+id/teamRocketBtn"
+                app:layout_constraintTop_toTopOf="@+id/teamRocketBtn"
+                app:layout_constraintVertical_bias="0.424" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView17"
+                android:layout_width="390dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:clickable="false"
+                android:contentDescription="@string/grey_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.039"
+                app:srcCompat="@drawable/rounded_club_button"
+                tools:ignore="ImageContrastCheck" />
+
+            <ImageView
+                android:id="@+id/imageView25"
+                android:layout_width="48dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/planet"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.065"
+                app:layout_constraintStart_toStartOf="@+id/imageView17"
+                app:layout_constraintTop_toTopOf="@+id/imageView17"
+                app:srcCompat="@drawable/wet_planet1" />
+
+            <TextView
+                android:id="@+id/textView52"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_edit_text"
+                android:padding="20dp"
+                android:text="Baki's Bookclub"
+                android:textColor="#657DDE"
+                android:textSize="25dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+                app:layout_constraintEnd_toEndOf="@+id/imageView17"
+                app:layout_constraintHorizontal_bias="0.763"
+                app:layout_constraintStart_toStartOf="@+id/imageView17"
+                app:layout_constraintTop_toTopOf="@+id/imageView17" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="390dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_club_button"
+            android:gravity="center"
+            android:text="+"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
