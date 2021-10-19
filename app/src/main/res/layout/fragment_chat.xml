@@ -46,6 +46,7 @@
                 android:background="@drawable/rounded_edit_text"
                 android:padding="15dp"
                 android:text="Hey, nice ship!"
+                android:textColor="@color/highlightGrey"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -61,7 +62,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-
+                android:textColor="@color/highlightGrey"
                 android:background="@drawable/rounded_edit_text"
                 android:padding="15dp"
                 android:text="Thanks! Just finished the Philosopher's Stone. It's really good!"
@@ -98,6 +99,7 @@
                 android:layout_gravity="start"
                 android:background="@drawable/rounded_edit_text"
                 android:padding="15dp"
+                android:textColor="@color/highlightGrey"
                 android:text="Oh damn, you must already have the trinket then. Read the quote, it's pretty cool."
                 android:textSize="18sp" />
         </LinearLayout>
@@ -114,6 +116,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:textColor="@color/highlightGrey"
 
                 android:background="@drawable/rounded_edit_text"
                 android:padding="15dp"
@@ -141,6 +144,8 @@
         android:background="@drawable/rounded_edit_text"
         android:ems="10"
         android:hint="Aa"
+        android:textColor="@color/black"
+        android:textColorHint="@color/trinket_lightGrey"
         android:inputType="textPersonName"
         android:padding="15dp"
         android:textSize="18sp"
