@@ -42,7 +42,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp"
                     android:textAlignment="center"
-                    android:text="Book title"/>
+                    android:text="Book title"
+                    android:textColor="@color/highlightGrey"/>
                 <TextView
                     android:id="@+id/authorTv"
                     android:layout_width="match_parent"
@@ -51,7 +52,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp"
                     android:textAlignment="center"
-                    android:text="Book author"/>
+                    android:text="Book author"
+                    android:textColor="@color/highlightGrey"/>
                 <com.google.android.material.progressindicator.LinearProgressIndicator
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

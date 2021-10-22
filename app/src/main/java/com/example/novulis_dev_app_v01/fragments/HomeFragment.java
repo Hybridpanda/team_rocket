@@ -2,11 +2,15 @@ package com.example.novulis_dev_app_v01.fragments;
 
 import android.os.Bundle;
 
+import androidx.dynamicanimation.animation.DynamicAnimation;
+import androidx.dynamicanimation.animation.SpringAnimation;
+import androidx.dynamicanimation.animation.SpringForce;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -22,6 +26,7 @@ public class HomeFragment extends Fragment {
 
     Profile profile;
     TextView currentBookTv;
+    ImageView rocketShip;
 
     ProgressBar pagesReadProgressBar;
     ProgressBar readingTimeProgressBar;
@@ -58,6 +63,17 @@ public class HomeFragment extends Fragment {
         profile = new Profile();
         //profile.saveProfile(view.getContext());
         profile.loadProfile(view.getContext());
+
+        rocketShip = view.findViewById(R.id.imageView2);
+        final SpringAnimation imageSpring = new SpringAnimation(rocketShip, DynamicAnimation.ROTATION, 0);
+        imageSpring.setStartValue(50f);
+        imageSpring.setStartVelocity(70f);
+        SpringForce springForce = new SpringForce();
+        springForce.setDampingRatio(SpringForce.DAMPING_RATIO_HIGH_BOUNCY);
+        springForce.setFinalPosition(0f);
+        springForce.setStiffness(SpringForce.STIFFNESS_LOW);
+        imageSpring.setSpring(springForce);
+        imageSpring.start();
 
         currentBookTv = view.findViewById(R.id.currentBookTv);
         currentBookTv.setText(profile.getCurrentBookTitle());

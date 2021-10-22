@@ -133,4 +133,16 @@
         app:layout_constraintTop_toTopOf="@+id/ulyssesView"
         app:layout_constraintVertical_bias="0.0" />
 
+    <ImageView
+        android:id="@+id/orbitingShipIv"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/flying_car_preview"
+        app:layout_constraintBottom_toBottomOf="@+id/harryView"
+        app:layout_constraintEnd_toEndOf="@+id/harryView"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.629" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

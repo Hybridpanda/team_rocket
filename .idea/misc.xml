@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/drawable/current_goal.xml" value="0.4203125" />
+        <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/drawable/custom_progress_bar.xml" value="0.4203125" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/drawable/custom_round_progress.xml" value="0.325" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/drawable/customisation_menu_background.xml" value="0.4203125" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/drawable/dropdown_btn.xml" value="0.290625" />
+        <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/drawable/orbit_animation.xml" value="0.4203125" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/drawable/popup_background.xml" value="0.4203125" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/drawable/rounded_club_button.xml" value="0.4203125" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/drawable/rounded_edit_text.xml" value="0.4203125" />
@@ -36,6 +38,7 @@
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_book_progress.xml" value="0.264" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_book_similar.xml" value="0.536" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_chat.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_club_progress.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_club_selection.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_decal_customisation.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_group_progress.xml" value="0.39010416666666664" />
@@ -53,9 +56,12 @@
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_trail_customisation.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/fragment_trail_style_customisation.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/log_raw_item.xml" value="0.536" />
-        <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/search_result_raw_item.xml" value="0.20729166666666668" />
+        <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/search_result_raw_item.xml" value="0.536" />
+        <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/spinner_dropdown_item.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/layout/spinner_list.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/menu/bottom_nav_menu.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/AndroidStudioProjects/Novulis/app/src/main/res/menu/clubs_nav_menu.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/jackr/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jackr/StudioProjects/team_rocket/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/team_rocket/app/src/main/res/layout/activity_book.xml" value="0.19144144144144143" />
         <entry key="..\:/team_rocket/app/src/main/res/layout/activity_book_club.xml" value="0.34919864011656143" />

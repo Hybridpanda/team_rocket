@@ -1,5 +1,6 @@
 package com.example.novulis_dev_app_v01.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.os.Bundle;
 
@@ -13,11 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.novulis_dev_app_v01.R;
 import com.example.novulis_dev_app_v01.adapters.LogRecyclerViewAdapter;
@@ -127,39 +130,25 @@ public class LogFragment extends Fragment {
                 logDropdown = mView.findViewById(R.id.logDropdown);
                 logAmount = mView.findViewById(R.id.logAmountEt);
                 logNote = mView.findViewById(R.id.logNote);
-                durationHours = mView.findViewById(R.id.durationHoursEt);
-                durationMinutes = mView.findViewById(R.id.durationMinutesEt);
-                int durationTotalMinutes = 60 * Integer.parseInt(durationHours.getText().toString()) + Integer.parseInt(durationMinutes.getText().toString());
+                int durationTotalMinutes = 30; // Each log is just being saved as a 30 minute session for now
                 cancelBtn = mView.findViewById(R.id.cancelBtn);
                 saveBtn = mView.findViewById(R.id.saveBtn);
 
                 // Set up the drop down selectors
                 String[] items = new String[] {"Chapters", "Pages", "Books"};
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, items);
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_dropdown_item, items);
                 logDropdown.setAdapter(adapter);
 
                 String[] bookTitles = profile.getBookTitles();
-                ArrayAdapter<String> titleAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, bookTitles);
+                ArrayAdapter<String> titleAdapter = new ArrayAdapter<>(getContext(), R.layout.spinner_dropdown_item, bookTitles);
+                titleAdapter.setDropDownViewResource(R.layout.spinner_list);
                 bookDropdown.setAdapter(titleAdapter);
+                bookDropdown.setOnItemSelectedListener(listener);
+
 
                 //Book currentBook = profile.getCurrentBook();
                 pagesSeekBar.setMax(100);
                 pagesSeekBar.setProgress(20);
-
-                // Create the animation for the unlock
-//                RotateAnimation forwardAnimation = new RotateAnimation(0, 30f,
-//                        Animation.RELATIVE_TO_SELF, 0.5f,
-//                        Animation.RELATIVE_TO_SELF, 0.5f);
-//
-//                RotateAnimation backwardAnimation = new RotateAnimation(30f, 0f,
-//                        Animation.RELATIVE_TO_SELF, 0.5f,
-//                        Animation.RELATIVE_TO_SELF, 0.5f);
-//
-//                forwardAnimation.setInterpolator(new LinearInterpolator());
-//                forwardAnimation.setDuration(2000);
-//                forwardAnimation.setRepeatCount(Animation.INFINITE);
-//
-//                unlockView.findViewById(R.id.flyingCarIv).startAnimation(forwardAnimation);
 
 
                 // Create the log input pop up
@@ -201,9 +190,9 @@ public class LogFragment extends Fragment {
                         unlockAlert.setView(unlockView);
                         unlockDialog[0] = unlockAlert.create();
                         unlockDialog[0].show();
-                        final SpringAnimation imageSpring = new SpringAnimation(flyingCarIv, DynamicAnimation.ROTATION_Y, 0);
-                        imageSpring.setStartValue(1000f);
-                        imageSpring.setStartVelocity(100f);
+                        final SpringAnimation imageSpring = new SpringAnimation(flyingCarIv, DynamicAnimation.ROTATION, 0);
+                        imageSpring.setStartValue(100f);
+                        imageSpring.setStartVelocity(10f);
                         SpringForce springForce = new SpringForce();
                         springForce.setDampingRatio(SpringForce.DAMPING_RATIO_HIGH_BOUNCY);
                         springForce.setFinalPosition(0f);
@@ -226,6 +215,21 @@ public class LogFragment extends Fragment {
             }
         });
 
+
+
         return v;
     }
+
+    private AdapterView.OnItemSelectedListener listener = new AdapterView.OnItemSelectedListener() {
+        @SuppressLint("ResourceAsColor")
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            ((TextView) parent.getChildAt(0)).setTextColor(R.color.white);
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    };
 }

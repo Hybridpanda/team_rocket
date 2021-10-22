@@ -12,11 +12,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.novulis_dev_app_v01.activities.BookActivity;
+import com.example.novulis_dev_app_v01.activities.NavigationActivity;
+import com.example.novulis_dev_app_v01.fragments.LibraryFragment;
 import com.example.novulis_dev_app_v01.model.Book;
 //import com.google.android.gms.fido.fido2.api.common.RequestOptions;
 import com.example.novulis_dev_app_v01.R;
@@ -62,6 +67,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 i.putExtra("book_currentPage", mData.get(pos).getCurrentPage());
                 i.putExtra("book_genre", mData.get(pos).getGenre());
                 i.putExtra("book_preview", mData.get(pos).getPreview());
+
 
                 mContext.startActivity(i);
             }
