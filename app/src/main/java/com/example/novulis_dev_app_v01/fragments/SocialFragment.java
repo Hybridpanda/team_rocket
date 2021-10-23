@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.novulis_dev_app_v01.R;
 import com.example.novulis_dev_app_v01.activities.BookClubsActivity;
@@ -19,7 +20,7 @@ import com.example.novulis_dev_app_v01.callbacks.FragmentCallback;
 public class SocialFragment extends Fragment {
 
     private FragmentCallback callback;
-    private Button clubsBtn;
+    private ImageView clubsBtn;
 
     public SocialFragment() {
         // Required empty public constructor
