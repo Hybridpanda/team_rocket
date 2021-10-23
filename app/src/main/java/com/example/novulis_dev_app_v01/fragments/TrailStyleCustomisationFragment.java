@@ -1,7 +1,6 @@
 package com.example.novulis_dev_app_v01.fragments;
 
 import android.content.Context;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -119,4 +118,5 @@ public class TrailStyleCustomisationFragment extends Fragment {
 
         return view;
     }
+
 }
