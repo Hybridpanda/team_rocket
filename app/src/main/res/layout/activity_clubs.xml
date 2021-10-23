@@ -69,17 +69,17 @@
 
     <ImageView
         android:id="@+id/imageView16"
-        android:layout_width="276dp"
-        android:layout_height="111dp"
+        android:layout_width="278dp"
+        android:layout_height="78dp"
         android:layout_marginEnd="16dp"
         android:clickable="false"
         android:contentDescription="@string/inner_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintHorizontal_bias="0.811"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209"
+        app:layout_constraintVertical_bias="0.227"
         app:srcCompat="@drawable/rectangle166"
         tools:ignore="ImageContrastCheck" />
 
