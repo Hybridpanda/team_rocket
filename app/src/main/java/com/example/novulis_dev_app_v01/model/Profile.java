@@ -33,6 +33,9 @@ public class Profile implements Serializable {
     private String currentBookTitle;
     private String currentShip;
     private int pagesRead;
+    private int goalValue;
+    private String goalInterval;
+    private boolean shipCheck;
 
     private static  final  String BASE_URL="https://www.googleapis.com/books/v1/volumes?q=intitle:";
     RequestQueue mRequestQueue;
@@ -42,6 +45,9 @@ public class Profile implements Serializable {
         bookLog = new ArrayList<>();
         currentShip = "Rocket";
         pagesRead = 60;
+        shipCheck = true;
+        goalValue = 100;
+        goalInterval = "Week";
     }
 
     public void saveBookLog(Context mContext) {
@@ -82,6 +88,9 @@ public class Profile implements Serializable {
         profileDetails.add(currentBookTitle);
         profileDetails.add(currentShip);
         profileDetails.add(pagesRead + "");
+        profileDetails.add(shipCheck + "");
+        profileDetails.add(goalValue + "");
+        profileDetails.add(goalInterval);
 
         try {
             System.out.println("Saving Profile");
@@ -130,6 +139,9 @@ public class Profile implements Serializable {
         setCurrentBook(profileDetails.get(0));
         currentShip = profileDetails.get(1);
         pagesRead = Integer.parseInt(profileDetails.get(2));
+        shipCheck = Boolean.parseBoolean(profileDetails.get(3));
+        goalValue = Integer.parseInt(profileDetails.get(4));
+        goalInterval = profileDetails.get(5);
 
     }
 
@@ -397,6 +409,10 @@ public class Profile implements Serializable {
 
     public void setCurrentShip(String currentShip) { this.currentShip = currentShip; }
 
+    public void setShipCheck(boolean bool) {shipCheck = bool;}
+
+    public boolean getShipCheck() {return shipCheck;}
+
     public void addLog(Log log) {
         for (Book book : library) {
             if (book.getTitle().equals(log.getBookTitle())) {
@@ -425,5 +441,21 @@ public class Profile implements Serializable {
                 ", bookLog=" + bookLog.toString() +
                 ", currentBook='" + currentBookTitle + '\'' +
                 '}';
+    }
+
+    public int getGoalValue() {
+        return goalValue;
+    }
+
+    public void setGoalValue(int goalValue) {
+        this.goalValue = goalValue;
+    }
+
+    public String getGoalInterval() {
+        return goalInterval;
+    }
+
+    public void setGoalInterval(String goalInterval) {
+        this.goalInterval = goalInterval;
     }
 }

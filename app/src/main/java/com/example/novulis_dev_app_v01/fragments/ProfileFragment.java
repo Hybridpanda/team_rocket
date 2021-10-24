@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +37,6 @@ public class ProfileFragment extends Fragment {
     private Button trinketsBtn;
     private ImageView shipCustomisation;
     private Profile profile;
-    private boolean shipCheck = true;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -51,6 +51,7 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onResume() {
+
         super.onResume();
     }
 
@@ -82,11 +83,9 @@ public class ProfileFragment extends Fragment {
 
 
 
-        if (profile.getCurrentShip().equals("Flying Car") && shipCheck) {
+        if (profile.getCurrentShip().equals("Flying Car") && profile.getShipCheck()) {
             createNotificationChannel(view);
-            System.out.println("Notification not working");
-
-
+            profile.saveProfile(view.getContext());
         }
 
 
@@ -141,8 +140,10 @@ public class ProfileFragment extends Fragment {
                     .setVibrate(new long[] {10})
                     .setFullScreenIntent(pendingIntent, true);
 
-            notificationManager.notify(1, builder.build());
-            shipCheck = false;
+            if (profile.getShipCheck()) {
+                notificationManager.notify(1, builder.build());
+                profile.setShipCheck(false);
+            }
         }
     }
 

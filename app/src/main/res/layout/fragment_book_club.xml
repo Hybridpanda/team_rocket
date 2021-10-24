@@ -137,7 +137,7 @@
         android:id="@+id/orbitingShipIv"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/flying_car_preview"
+        android:src="@drawable/clipart2259762"
         app:layout_constraintBottom_toBottomOf="@+id/harryView"
         app:layout_constraintEnd_toEndOf="@+id/harryView"
         app:layout_constraintHorizontal_bias="0.86"
