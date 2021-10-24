@@ -79,7 +79,7 @@ public class ClubSelectionFragment extends Fragment {
         image2Spring.setSpring(spring2Force);
         image2Spring.start();
 
-            Log.d("done", "done");
+        Log.d("done", "done");
         teamRocketBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
